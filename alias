@@ -1,0 +1,5 @@
+echo "alias tml='tmux ls'" | sudo tee -a ~/.bashrc
+echo "alias tma='tmux attach -t'" | sudo tee -a ~/.bashrc
+echo "alias tmr='tmux rename-session'" | sudo tee -a ~/.bashrc
+echo "alias tmn='tmux new -s'" | sudo tee -a ~/.bashrc
+echo "alias tmk='tmux kill-session'" | sudo tee -a ~/.bashrc
