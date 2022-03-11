@@ -27,7 +27,7 @@ echo "alias ai='sudo apt install'" | sudo tee -a ~/.$el_shell
 echo "alias up1='sudo apt update -y'" | sudo tee -a ~/.$el_shell
 echo "alias up2='sudo apt update -y && sudo apt upgrade -y'" | sudo tee -a ~/.$el_shell
 echo "alias sshd='sudo cat /etc/ssh/sshd_config'" | sudo tee -a ~/.$el_shell
-echo "alias sshda='cat /etc/ssh/sshd_config | grep 'PubkeyAuthentication\|PasswordAuthentication\|#PermitRootLogin prohibit-password\|#PermitEmptyPasswords no''" | sudo tee -a ~/.$el_shell
+echo "alias sshda='cat /etc/ssh/sshd_config | grep 'PubkeyAuthentication\|PasswordAuthentication\|PermitRootLogin\|PermitEmptyPasswords''" | sudo tee -a ~/.$el_shell
 echo "alias vmmc='sudo sysctl vm.max_map_count'" | sudo tee -a ~/.$el_shell
 echo "alias ffm='sudo sysctl fs.file-max'" | sudo tee -a ~/.$el_shell
 
