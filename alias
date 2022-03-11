@@ -2,7 +2,7 @@
 # CREACION DE ALIAS
 
 # OJO SELECCIONAR SHELL:  bashrc  o  zshrc
-el_shell=zshrc
+el_shell=bashrc
 
 echo "" | sudo tee -a ~/.$el_shell
 
@@ -51,6 +51,10 @@ echo "alias tmk='tmux kill-session -t'" | sudo tee -a ~/.$el_shell
 echo "#ALIAS IDN" | sudo tee -a ~/.$el_shell
 echo "alias fb='ssh fac-bastion'" | sudo tee -a ~/.$el_shell
 echo "alias bsh='sudo cat ~/.$el_shell'" | sudo tee -a ~/.$el_shell
+echo 'alias tprx="curl -k -x "http://proxy.dev.idnomic.com:3128" -L "https://www.amazon.com""' | sudo tee -a ~/.$el_shell
+echo 'alias proxyon="export http_proxy="http://proxy.dev.idnomic.com:3128";export https_proxy="http://proxy.dev.idnomic.com:3128""' | sudo tee -a ~/.$el_shell
+echo 'alias proxyoff="unset http_proxy;unset https_proxy"' | sudo tee -a ~/.$el_shell
+
 
 # Docker
 echo "#ALIAS DOCKER" | sudo tee -a ~/.$el_shell
