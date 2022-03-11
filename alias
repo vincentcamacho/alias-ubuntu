@@ -1,5 +1,66 @@
-echo "alias tml='tmux ls'" | sudo tee -a ~/.bashrc
-echo "alias tma='tmux attach -t'" | sudo tee -a ~/.bashrc
-echo "alias tmr='tmux rename-session -t'" | sudo tee -a ~/.bashrc
-echo "alias tmn='tmux new -s'" | sudo tee -a ~/.bashrc
-echo "alias tmk='tmux kill-session -t'" | sudo tee -a ~/.bashrc
+#!/bin/bash
+# CREACION DE ALIAS
+
+# OJO SELECCIONAR SHELL:  bashrc  o  zshrc
+el_shell=zshrc
+
+echo "" | sudo tee -a ~/.$el_shell
+
+# Basicos
+echo "#ALIAS BASICOS" | sudo tee -a ~/.$el_shell
+echo "alias c='sudo cat'" | sudo tee -a ~/.$el_shell
+echo "alias t='sudo touch'" | sudo tee -a ~/.$el_shell
+echo "alias md='sudo mkdir'" | sudo tee -a ~/.$el_shell
+echo "alias nt='sudo netstat -tulpn'" | sudo tee -a ~/.$el_shell
+echo "alias hs='history'" | sudo tee -a ~/.$el_shell
+echo "alias hm='cd ~'" | sudo tee -a ~/.$el_shell
+echo "alias l1='ls -la'" | sudo tee -a ~/.$el_shell
+echo "alias sy='sudo systemctl status'" | sudo tee -a ~/.$el_shell
+echo "alias sy1='sudo systemctl start'" | sudo tee -a ~/.$el_shell
+echo "alias sy2='sudo systemctl stop'" | sudo tee -a ~/.$el_shell
+echo "alias syr='sudo systemctl restart'" | sudo tee -a ~/.$el_shell
+echo "alias pw='sudo cat /etc/passwd'" | sudo tee -a ~/.$el_shell
+echo "alias sd='sudo cat /etc/sudoers'" | sudo tee -a ~/.$el_shell
+echo "alias sd2='sudo cat /etc/sudoers.d/90-cloud-init-users'" | sudo tee -a ~/.$el_shell
+echo "alias fws='sudo ufw status'" | sudo tee -a ~/.$el_shell
+echo "alias ai='sudo apt install'" | sudo tee -a ~/.$el_shell
+echo "alias up1='sudo apt update -y'" | sudo tee -a ~/.$el_shell
+echo "alias up2='sudo apt update -y && sudo apt upgrade -y'" | sudo tee -a ~/.$el_shell
+echo "alias sshd='sudo cat /etc/ssh/sshd_config'" | sudo tee -a ~/.$el_shell
+echo "alias sshda='sudo cat /etc/ssh/sshd_config | grep Authentication'" | sudo tee -a ~/.$el_shell
+echo "alias vmmc='sudo sysctl vm.max_map_count'" | sudo tee -a ~/.$el_shell
+echo "alias ffm='sudo sysctl fs.file-max'" | sudo tee -a ~/.$el_shell
+
+# Git
+echo "#ALIAS GIT" | sudo tee -a ~/.$el_shell
+echo "alias gst='git status'" | sudo tee -a ~/.$el_shell
+echo "alias gad='git add'" | sudo tee -a ~/.$el_shell
+echo "alias gada='git add .'" | sudo tee -a ~/.$el_shell
+echo "alias gcm='git commit -m'" | sudo tee -a ~/.$el_shell
+echo "alias gph='git push -u origin'" | sudo tee -a ~/.$el_shell
+
+# Tmux
+echo "#ALIAS TMUX" | sudo tee -a ~/.$el_shell
+echo "alias tml='tmux ls'" | sudo tee -a ~/.$el_shell
+echo "alias tma='tmux attach -t'" | sudo tee -a ~/.$el_shell
+echo "alias tmr='tmux rename-session -t'" | sudo tee -a ~/.$el_shell
+echo "alias tmn='tmux new -s'" | sudo tee -a ~/.$el_shell
+echo "alias tmk='tmux kill-session -t'" | sudo tee -a ~/.$el_shell
+
+# IDN
+echo "#ALIAS IDN" | sudo tee -a ~/.$el_shell
+echo "alias fb='ssh fac-bastion'" | sudo tee -a ~/.$el_shell
+echo "alias bsh='sudo cat ~/.$el_shell'" | sudo tee -a ~/.$el_shell
+
+# Docker
+echo "#ALIAS DOCKER" | sudo tee -a ~/.$el_shell
+echo "alias d='docker'" | sudo tee -a ~/.$el_shell
+echo "alias dp='docker ps'" | sudo tee -a ~/.$el_shell
+echo "alias dpa='docker ps -a'" | sudo tee -a ~/.$el_shell
+echo "alias di='docker images'" | sudo tee -a ~/.$el_shell
+echo "alias ds='docker stop'" | sudo tee -a ~/.$el_shell
+echo "alias drm='docker rm -f'" | sudo tee -a ~/.$el_shell
+echo "alias dka='docker rm \$(docker stop \$(docker ps -aq))'" | sudo tee -a ~/.$el_shell
+echo "alias dki='docker rmi -f \$(docker images -aq)'" | sudo tee -a ~/.$el_shell
+echo "alias drd='docker run -d'" | sudo tee -a ~/.$el_shell
+echo "alias drd='docker run'" | sudo tee -a ~/.$el_shell
