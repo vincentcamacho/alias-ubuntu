@@ -68,3 +68,6 @@ echo "alias dka='docker rm \$(docker stop \$(docker ps -aq))'" | sudo tee -a ~/.
 echo "alias dki='docker rmi -f \$(docker images -aq)'" | sudo tee -a ~/.$el_shell
 echo "alias drd='docker run -d'" | sudo tee -a ~/.$el_shell
 echo "alias drd='docker run'" | sudo tee -a ~/.$el_shell
+
+# Otros
+echo 'alias ssha="eval $(ssh-agent) && ssh-add"' | sudo tee -a ~/.$el_shell
