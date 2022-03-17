@@ -39,7 +39,7 @@ echo "alias sshda='cat /etc/ssh/sshd_config | grep 'PubkeyAuthentication\|Passwo
 
 #SSH AGENT
 echo "#ALIAS AGENTE SSH" | sudo tee -a ~/.$el_shell
-echo 'alias ssha="eval $(ssh-agent) && ssh-add"' | sudo tee -a ~/.$el_shell
+echo "alias ssha='eval \$(ssh-agent) && ssh-add'" | sudo tee -a ~/.$el_shell
 
 # Sistema
 echo "#ALIAS SISTEMA" | sudo tee -a ~/.$el_shell
