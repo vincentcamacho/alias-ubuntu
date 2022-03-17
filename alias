@@ -4,8 +4,11 @@
 # OJO SELECCIONAR SHELL:  bashrc  o  zshrc
 el_shell=zshrc
 
-echo "" | sudo tee -a ~/.$el_shell
+echo "# NECESARIOS" | sudo tee -a ~/.$el_shell
 echo "alias cna='rm -rf alias.sh && touch alias.sh && chmod +x alias.sh && vim alias.sh'" | sudo tee -a ~/.$el_shell
+echo "alias cnz='rm -rf ~/.zshrc && cp ~/.zshrc-backup ~/.zshrc'" | sudo tee -a ~/.$el_shell
+echo "alias bsh='sudo cat ~/.bashrc'" | sudo tee -a ~/.$el_shell
+echo "alias zsh='sudo cat ~/.zshrc'" | sudo tee -a ~/.$el_shell
 echo "" | sudo tee -a ~/.$el_shell
 
 # Basicos
@@ -28,15 +31,18 @@ echo "alias fws='sudo ufw status'" | sudo tee -a ~/.$el_shell
 echo "alias ai='sudo apt install'" | sudo tee -a ~/.$el_shell
 echo "alias up1='sudo apt update -y'" | sudo tee -a ~/.$el_shell
 echo "alias up2='sudo apt update -y && sudo apt upgrade -y'" | sudo tee -a ~/.$el_shell
-echo "alias bsh='sudo cat ~/.bashrc'" | sudo tee -a ~/.$el_shell
-echo "alias zsh='sudo cat ~/.zshrc'" | sudo tee -a ~/.$el_shell
 
 #Sshd
+echo "#ALIAS SSHD" | sudo tee -a ~/.$el_shell
 echo "alias sshd='sudo cat /etc/ssh/sshd_config'" | sudo tee -a ~/.$el_shell
 echo "alias sshda='cat /etc/ssh/sshd_config | grep 'PubkeyAuthentication\|PasswordAuthentication\|PermitRootLogin\|PermitEmptyPasswords''" | sudo tee -a ~/.$el_shell
 
+#SSH AGENT
+echo "#ALIAS AGENTE SSH" | sudo tee -a ~/.$el_shell
+echo 'alias ssha="eval $(ssh-agent) && ssh-add"' | sudo tee -a ~/.$el_shell
 
 # Sistema
+echo "#ALIAS SISTEMA" | sudo tee -a ~/.$el_shell
 echo "alias vmmc='sudo sysctl vm.max_map_count'" | sudo tee -a ~/.$el_shell
 echo "alias ffm='sudo sysctl fs.file-max'" | sudo tee -a ~/.$el_shell
 
@@ -79,6 +85,3 @@ echo "alias dka='docker rm \$(docker stop \$(docker ps -aq))'" | sudo tee -a ~/.
 echo "alias dki='docker rmi -f \$(docker images -aq)'" | sudo tee -a ~/.$el_shell
 echo "alias drd='docker run -d'" | sudo tee -a ~/.$el_shell
 echo "alias drd='docker run'" | sudo tee -a ~/.$el_shell
-
-# Otros
-echo 'alias ssha="eval $(ssh-agent) && ssh-add"' | sudo tee -a ~/.$el_shell
