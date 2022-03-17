@@ -9,6 +9,7 @@ echo "alias cna='rm -rf alias.sh && touch alias.sh && chmod +x alias.sh && vim a
 echo "alias cnz='rm -rf ~/.zshrc && cp ~/.zshrc-backup ~/.zshrc'" | sudo tee -a ~/.$el_shell
 echo "alias bsh='sudo cat ~/.bashrc'" | sudo tee -a ~/.$el_shell
 echo "alias zsh='sudo cat ~/.zshrc'" | sudo tee -a ~/.$el_shell
+echo "alias ssha='eval \$(ssh-agent) && ssh-add'" | sudo tee -a ~/.$el_shell
 echo "" | sudo tee -a ~/.$el_shell
 
 # Basicos
@@ -36,10 +37,6 @@ echo "alias up2='sudo apt update -y && sudo apt upgrade -y'" | sudo tee -a ~/.$e
 echo "#ALIAS SSHD" | sudo tee -a ~/.$el_shell
 echo "alias sshd='sudo cat /etc/ssh/sshd_config'" | sudo tee -a ~/.$el_shell
 echo "alias sshda='cat /etc/ssh/sshd_config | grep 'PubkeyAuthentication\|PasswordAuthentication\|PermitRootLogin\|PermitEmptyPasswords''" | sudo tee -a ~/.$el_shell
-
-#SSH AGENT
-echo "#ALIAS AGENTE SSH" | sudo tee -a ~/.$el_shell
-echo "alias ssha='eval \$(ssh-agent) && ssh-add'" | sudo tee -a ~/.$el_shell
 
 # Sistema
 echo "#ALIAS SISTEMA" | sudo tee -a ~/.$el_shell
