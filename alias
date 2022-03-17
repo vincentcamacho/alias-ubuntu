@@ -35,9 +35,12 @@ echo "alias ffm='sudo sysctl fs.file-max'" | sudo tee -a ~/.$el_shell
 echo "#ALIAS GIT" | sudo tee -a ~/.$el_shell
 echo "alias gst='git status'" | sudo tee -a ~/.$el_shell
 echo "alias gad='git add'" | sudo tee -a ~/.$el_shell
-echo "alias gada='git add .'" | sudo tee -a ~/.$el_shell
+echo "alias gaa='git add .'" | sudo tee -a ~/.$el_shell
 echo "alias gcm='git commit -m'" | sudo tee -a ~/.$el_shell
 echo "alias gph='git push -u origin'" | sudo tee -a ~/.$el_shell
+echo "alias gck='git checkout'" | sudo tee -a ~/.$el_shell
+echo "alias gpl='git pull'" | sudo tee -a ~/.$el_shell
+
 
 # Tmux
 echo "#ALIAS TMUX" | sudo tee -a ~/.$el_shell
