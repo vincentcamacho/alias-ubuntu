@@ -2,8 +2,10 @@
 # CREACION DE ALIAS
 
 # OJO SELECCIONAR SHELL:  bashrc  o  zshrc
-el_shell=bashrc
+el_shell=zshrc
 
+echo "" | sudo tee -a ~/.$el_shell
+echo "alias cna='rm -rf alias.sh && touch alias.sh && chmod +x alias.sh && vim alias.sh'" | sudo tee -a ~/.$el_shell
 echo "" | sudo tee -a ~/.$el_shell
 
 # Basicos
@@ -26,8 +28,15 @@ echo "alias fws='sudo ufw status'" | sudo tee -a ~/.$el_shell
 echo "alias ai='sudo apt install'" | sudo tee -a ~/.$el_shell
 echo "alias up1='sudo apt update -y'" | sudo tee -a ~/.$el_shell
 echo "alias up2='sudo apt update -y && sudo apt upgrade -y'" | sudo tee -a ~/.$el_shell
+echo "alias bsh='sudo cat ~/.bashrc'" | sudo tee -a ~/.$el_shell
+echo "alias zsh='sudo cat ~/.zshrc'" | sudo tee -a ~/.$el_shell
+
+#Sshd
 echo "alias sshd='sudo cat /etc/ssh/sshd_config'" | sudo tee -a ~/.$el_shell
 echo "alias sshda='cat /etc/ssh/sshd_config | grep 'PubkeyAuthentication\|PasswordAuthentication\|PermitRootLogin\|PermitEmptyPasswords''" | sudo tee -a ~/.$el_shell
+
+
+# Sistema
 echo "alias vmmc='sudo sysctl vm.max_map_count'" | sudo tee -a ~/.$el_shell
 echo "alias ffm='sudo sysctl fs.file-max'" | sudo tee -a ~/.$el_shell
 
@@ -53,8 +62,6 @@ echo "alias tmk='tmux kill-session -t'" | sudo tee -a ~/.$el_shell
 # IDN
 echo "#ALIAS IDN" | sudo tee -a ~/.$el_shell
 echo "alias fb='ssh fac-bastion'" | sudo tee -a ~/.$el_shell
-echo "alias bsh='sudo cat ~/.bashrc'" | sudo tee -a ~/.$el_shell 
-echo "alias zsh='sudo cat ~/.zshrc'" | sudo tee -a ~/.$el_shell
 echo 'alias tprx="curl -k -x "http://proxy.dev.idnomic.com:3128" -L "https://www.amazon.com""' | sudo tee -a ~/.$el_shell
 echo 'alias proxyon="export http_proxy="http://proxy.dev.idnomic.com:3128";export https_proxy="http://proxy.dev.idnomic.com:3128""' | sudo tee -a ~/.$el_shell
 echo 'alias proxyoff="unset http_proxy;unset https_proxy"' | sudo tee -a ~/.$el_shell
