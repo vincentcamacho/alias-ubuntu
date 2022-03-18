@@ -5,11 +5,12 @@
 el_shell=zshrc
 
 echo "# NECESARIOS" | sudo tee -a ~/.$el_shell
-echo "alias cna='rm -rf alias.sh && touch alias.sh && chmod +x alias.sh && vim alias.sh'" | sudo tee -a ~/.$el_shell
+# echo "alias cna='rm -rf alias.sh && touch alias.sh && chmod +x alias.sh && vim alias.sh'" | sudo tee -a ~/.$el_shell
 echo "alias cnz='rm -rf ~/.zshrc && cp ~/.zshrc-backup ~/.zshrc'" | sudo tee -a ~/.$el_shell
 echo "alias bsh='sudo cat ~/.bashrc'" | sudo tee -a ~/.$el_shell
 echo "alias zsh='sudo cat ~/.zshrc'" | sudo tee -a ~/.$el_shell
 echo "alias ssha='eval \$(ssh-agent) && ssh-add'" | sudo tee -a ~/.$el_shell
+echo "alias fb='eval \$(ssh-agent) && ssh-add && ssh fac-bastion'" | sudo tee -a ~/.$el_shell
 echo "" | sudo tee -a ~/.$el_shell
 
 # Basicos
@@ -52,7 +53,7 @@ echo "alias gcm='git commit -m'" | sudo tee -a ~/.$el_shell
 echo "alias gph='git push -u origin'" | sudo tee -a ~/.$el_shell
 echo "alias gck='git checkout'" | sudo tee -a ~/.$el_shell
 echo "alias gpl='git pull'" | sudo tee -a ~/.$el_shell
-echo "alias gacp='git add . && git commit -m "New changes" && git push'" | sudo tee -a ~/.$el_shell
+echo "alias gacp='git add . && git commit -m 'New changes' && git push'" | sudo tee -a ~/.$el_shell
 
 # Tmux
 echo "#ALIAS TMUX" | sudo tee -a ~/.$el_shell
@@ -64,7 +65,6 @@ echo "alias tmk='tmux kill-session -t'" | sudo tee -a ~/.$el_shell
 
 # IDN
 echo "#ALIAS IDN" | sudo tee -a ~/.$el_shell
-echo "alias fb='ssh fac-bastion'" | sudo tee -a ~/.$el_shell
 echo 'alias tprx="curl -k -x "http://proxy.dev.idnomic.com:3128" -L "https://www.amazon.com""' | sudo tee -a ~/.$el_shell
 echo 'alias proxyon="export http_proxy="http://proxy.dev.idnomic.com:3128";export https_proxy="http://proxy.dev.idnomic.com:3128""' | sudo tee -a ~/.$el_shell
 echo 'alias proxyoff="unset http_proxy;unset https_proxy"' | sudo tee -a ~/.$el_shell
