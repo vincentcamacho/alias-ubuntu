@@ -11,27 +11,35 @@ echo "alias bsh='sudo cat ~/.bashrc'" | sudo tee -a ~/.$el_shell
 echo "alias zsh='sudo cat ~/.zshrc'" | sudo tee -a ~/.$el_shell
 echo "alias ssha='eval \$(ssh-agent) && ssh-add'" | sudo tee -a ~/.$el_shell
 echo "alias fb='eval \$(ssh-agent) && ssh-add && ssh fac-bastion'" | sudo tee -a ~/.$el_shell
+# echo "alias cns='echo \"#!/bin/bash\" >> script.sh && chmod +x script.sh && vim script.sh'" | sudo tee -a ~/.$el_shell
+echo "alias cns='echo -e \"#!/bin/bash\n\" >> script.sh && chmod +x script.sh && vim script.sh'" | sudo tee -a ~/.$el_shell
+
 
 # Basicos
 echo -e "\n#ALIAS BASICOS" | sudo tee -a ~/.$el_shell
-echo "alias c='sudo cat'" | sudo tee -a ~/.$el_shell
-echo "alias t='sudo touch'" | sudo tee -a ~/.$el_shell
-echo "alias md='sudo mkdir'" | sudo tee -a ~/.$el_shell
+echo "alias c='cat'" | sudo tee -a ~/.$el_shell
+echo "alias sc='sudo cat'" | sudo tee -a ~/.$el_shell
+echo "alias t='touch'" | sudo tee -a ~/.$el_shell
+echo "alias st='sudo touch'" | sudo tee -a ~/.$el_shell
+echo "alias md='mkdir'" | sudo tee -a ~/.$el_shell
+echo "alias smd='sudo mkdir'" | sudo tee -a ~/.$el_shell
+echo "alias rrf='sudo rm -rf'" | sudo tee -a ~/.$el_shell
 echo "alias nt='sudo netstat -tulpn'" | sudo tee -a ~/.$el_shell
 echo "alias hs='history'" | sudo tee -a ~/.$el_shell
 echo "alias hm='cd ~'" | sudo tee -a ~/.$el_shell
 echo "alias l1='ls -la'" | sudo tee -a ~/.$el_shell
-echo "alias sy='sudo systemctl status'" | sudo tee -a ~/.$el_shell
-echo "alias sy1='sudo systemctl start'" | sudo tee -a ~/.$el_shell
-echo "alias sy2='sudo systemctl stop'" | sudo tee -a ~/.$el_shell
-echo "alias syr='sudo systemctl restart'" | sudo tee -a ~/.$el_shell
+echo "alias scts='sudo systemctl status'" | sudo tee -a ~/.$el_shell
+echo "alias scte='sudo systemctl start'" | sudo tee -a ~/.$el_shell
+echo "alias scta='sudo systemctl stop'" | sudo tee -a ~/.$el_shell
+echo "alias sctr='sudo systemctl restart'" | sudo tee -a ~/.$el_shell
 echo "alias pw='sudo cat /etc/passwd'" | sudo tee -a ~/.$el_shell
-echo "alias sd='sudo cat /etc/sudoers'" | sudo tee -a ~/.$el_shell
-echo "alias sd2='sudo cat /etc/sudoers.d/90-cloud-init-users'" | sudo tee -a ~/.$el_shell
+echo "alias sdr='sudo cat /etc/sudoers'" | sudo tee -a ~/.$el_shell
+echo "alias sdr90='sudo cat /etc/sudoers.d/90-cloud-init-users'" | sudo tee -a ~/.$el_shell
 echo "alias fws='sudo ufw status'" | sudo tee -a ~/.$el_shell
-echo "alias ai='sudo apt install'" | sudo tee -a ~/.$el_shell
-echo "alias up1='sudo apt update -y'" | sudo tee -a ~/.$el_shell
-echo "alias up2='sudo apt update -y && sudo apt upgrade -y'" | sudo tee -a ~/.$el_shell
+echo "alias ain='sudo apt install'" | sudo tee -a ~/.$el_shell
+echo "alias aup='sudo apt update -y'" | sudo tee -a ~/.$el_shell
+echo "alias aug='sudo apt update -y && sudo apt upgrade -y'" | sudo tee -a ~/.$el_shell
+echo "alias lnvr='lsb_release -a'" | sudo tee -a ~/.$el_shell
 
 #Sshd
 echo -e "\n#ALIAS SSHD" | sudo tee -a ~/.$el_shell
