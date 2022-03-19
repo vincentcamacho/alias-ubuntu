@@ -13,7 +13,7 @@ echo "alias ssha='eval \$(ssh-agent) && ssh-add'" | sudo tee -a ~/.$el_shell
 echo "alias fb='eval \$(ssh-agent) && ssh-add && ssh fac-bastion'" | sudo tee -a ~/.$el_shell
 # echo "alias cns='echo \"#!/bin/bash\" >> script.sh && chmod +x script.sh && vim script.sh'" | sudo tee -a ~/.$el_shell
 echo "alias cns='echo -e \"#!/bin/bash\n\" >> script.sh && chmod +x script.sh && vim script.sh'" | sudo tee -a ~/.$el_shell
-
+echo "alias lc='colorls -lA --sd'" | sudo tee -a ~/.$el_shell
 
 # Basicos
 echo -e "\n#ALIAS BASICOS" | sudo tee -a ~/.$el_shell
