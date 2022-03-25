@@ -44,6 +44,7 @@ echo "alias aup='sudo apt update -y'" | sudo tee -a ~/.$el_shell
 echo "alias aug='sudo apt update -y && sudo apt upgrade -y'" | sudo tee -a ~/.$el_shell
 echo "alias lsbr='lsb_release -a'" | sudo tee -a ~/.$el_shell
 echo "alias lsbc='lsb_release -c'" | sudo tee -a ~/.$el_shell
+echo "alias osr='cat /etc/os-release'" | sudo tee -a ~/.$el_shell
 
 # Disco, RAM, Procesos, etc
 echo "alias lsbl='sudo lsblk -o NAME,FSTYPE,SIZE,MOUNTPOINT,LABEL'" | sudo tee -a ~/.$el_shell
@@ -95,7 +96,6 @@ echo 'alias tprx="curl -k -x "http://proxy.dev.idnomic.com:3128" -L "https://www
 echo 'alias proxyon="export http_proxy="http://proxy.dev.idnomic.com:3128";export https_proxy="http://proxy.dev.idnomic.com:3128""' | sudo tee -a ~/.$el_shell
 echo 'alias proxyoff="unset http_proxy;unset https_proxy"' | sudo tee -a ~/.$el_shell
 
-
 # Docker
 echo -e "\n#ALIAS DOCKER" | sudo tee -a ~/.$el_shell
 echo "alias d='docker'" | sudo tee -a ~/.$el_shell
@@ -106,6 +106,7 @@ echo "alias ds='docker stop'" | sudo tee -a ~/.$el_shell
 echo "alias drm='docker rm -f'" | sudo tee -a ~/.$el_shell
 echo "alias dka='docker rm \$(docker stop \$(docker ps -aq))'" | sudo tee -a ~/.$el_shell
 echo "alias dki='docker rmi -f \$(docker images -aq)'" | sudo tee -a ~/.$el_shell
+echo "alias dri='docker rmi -f'" | sudo tee -a ~/.$el_shell
 echo "alias drd='docker run -d'" | sudo tee -a ~/.$el_shell
 echo "alias drd='docker run'" | sudo tee -a ~/.$el_shell
 echo "alias dxi='docker exec -it'" | sudo tee -a ~/.$el_shell
