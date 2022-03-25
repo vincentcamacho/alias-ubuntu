@@ -68,7 +68,7 @@ echo -e "\n#ALIAS SISTEMA" | sudo tee -a ~/.$el_shell
 echo "alias vmmc='sudo sysctl vm.max_map_count'" | sudo tee -a ~/.$el_shell
 echo "alias ffm='sudo sysctl fs.file-max'" | sudo tee -a ~/.$el_shell
 
-# Git
+# Git Alias
 echo -e "\n#ALIAS GIT" | sudo tee -a ~/.$el_shell
 echo "alias gst='git status'" | sudo tee -a ~/.$el_shell
 echo "alias gad='git add'" | sudo tee -a ~/.$el_shell
