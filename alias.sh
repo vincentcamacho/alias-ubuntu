@@ -45,7 +45,7 @@ echo "alias aug='sudo apt update -y && sudo apt upgrade -y'" | sudo tee -a ~/.$e
 echo "alias lsbr='lsb_release -a'" | sudo tee -a ~/.$el_shell
 echo "alias lsbc='lsb_release -c'" | sudo tee -a ~/.$el_shell
 
-# Disco, RAM, Procesos
+# Disco, RAM, Procesos, etc
 echo "alias lsbl='sudo lsblk -o NAME,FSTYPE,SIZE,MOUNTPOINT,LABEL'" | sudo tee -a ~/.$el_shell
 echo "alias dfh='df -h | sort -k 1'" | sudo tee -a ~/.$el_shell
 echo "alias duh='du -sh * | sort -h'" | sudo tee -a ~/.$el_shell
