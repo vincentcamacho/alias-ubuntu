@@ -6,7 +6,7 @@ el_shell=zshrc
 
 echo -e "\n#ALIAS NECESARIOS" | sudo tee -a ~/.$el_shell
 # echo "alias cna='rm -rf alias.sh && touch alias.sh && chmod +x alias.sh && vim alias.sh'" | sudo tee -a ~/.$el_shell
-echo "alias cnz='rm -rf ~/.zshrc && cp ~/.zshrc-backup ~/.zshrc && source /home/vcamacho/ps/alias-ubuntu/alias.sh'" | sudo tee -a ~/.$el_shell
+echo "alias cnz='rm -rf ~/.zshrc && cp ~/.zshrc-backup ~/.zshrc && source /home/vcamacho/ps/alias-ubuntu/alias.sh && source ~/.zshrc'" | sudo tee -a ~/.$el_shell
 echo "alias bsh='sudo cat ~/.bashrc'" | sudo tee -a ~/.$el_shell
 echo "alias zsh='sudo cat ~/.zshrc'" | sudo tee -a ~/.$el_shell
 echo "alias ssha='eval \$(ssh-agent) && ssh-add'" | sudo tee -a ~/.$el_shell
@@ -16,7 +16,7 @@ echo "alias cns='echo -e \"#!/bin/bash\n\" >> script.sh && chmod +x script.sh &&
 echo "alias lc='colorls -lA --sd'" | sudo tee -a ~/.$el_shell
 echo "alias lx='exa -lhgi'" | sudo tee -a ~/.$el_shell
 echo "alias scf='cat ~/.ssh/config'" | sudo tee -a ~/.$el_shell
-
+echo "alias srz='source ~/.zshrc'" | sudo tee -a ~/.$el_shell
 
 # Basicos
 echo -e "\n#ALIAS BASICOS" | sudo tee -a ~/.$el_shell
@@ -31,10 +31,10 @@ echo "alias nt='sudo netstat -tulpn'" | sudo tee -a ~/.$el_shell
 echo "alias hs='history'" | sudo tee -a ~/.$el_shell
 echo "alias hm='cd ~'" | sudo tee -a ~/.$el_shell
 echo "alias l1='ls -la'" | sudo tee -a ~/.$el_shell
-echo "alias scts='sudo systemctl status'" | sudo tee -a ~/.$el_shell
-echo "alias scte='sudo systemctl start'" | sudo tee -a ~/.$el_shell
-echo "alias scta='sudo systemctl stop'" | sudo tee -a ~/.$el_shell
-echo "alias sctr='sudo systemctl restart'" | sudo tee -a ~/.$el_shell
+echo "alias sycs='sudo systemctl status'" | sudo tee -a ~/.$el_shell
+echo "alias syce='sudo systemctl start'" | sudo tee -a ~/.$el_shell
+echo "alias syca='sudo systemctl stop'" | sudo tee -a ~/.$el_shell
+echo "alias sycr='sudo systemctl restart'" | sudo tee -a ~/.$el_shell
 echo "alias pw='sudo cat /etc/passwd'" | sudo tee -a ~/.$el_shell
 echo "alias sdr='sudo cat /etc/sudoers'" | sudo tee -a ~/.$el_shell
 echo "alias sdr90='sudo cat /etc/sudoers.d/90-cloud-init-users'" | sudo tee -a ~/.$el_shell
@@ -42,12 +42,26 @@ echo "alias fws='sudo ufw status'" | sudo tee -a ~/.$el_shell
 echo "alias ain='sudo apt install'" | sudo tee -a ~/.$el_shell
 echo "alias aup='sudo apt update -y'" | sudo tee -a ~/.$el_shell
 echo "alias aug='sudo apt update -y && sudo apt upgrade -y'" | sudo tee -a ~/.$el_shell
-echo "alias lnvr='lsb_release -a'" | sudo tee -a ~/.$el_shell
+echo "alias lsbr='lsb_release -a'" | sudo tee -a ~/.$el_shell
+echo "alias lsbc='lsb_release -c'" | sudo tee -a ~/.$el_shell
+
+# Disco, RAM, Procesos
+echo "alias lsbl='sudo lsblk -o NAME,FSTYPE,SIZE,MOUNTPOINT,LABEL'" | sudo tee -a ~/.$el_shell
+echo "alias dfh='df -h | sort -k 1'" | sudo tee -a ~/.$el_shell
+echo "alias duh='du -sh * | sort -h'" | sudo tee -a ~/.$el_shell
+echo "alias psa='ps auxww'" | sudo tee -a ~/.$el_shell
+echo "alias psag='ps auxww | grep'" | sudo tee -a ~/.$el_shell
+echo "alias psuf='ps --user $(id -u) f'" | sudo tee -a ~/.$el_shell
+echo "alias psuff='ps --user $(id -u) -F'" | sudo tee -a ~/.$el_shell
+echo "alias psmw='ps auxww --sort -%mem | head -15'" | sudo tee -a ~/.$el_shell
+echo "alias psm='ps -eo comm,pmem,pcpu,uname,pid,etime --sort -pmem | head -15'" | sudo tee -a ~/.$el_shell
+echo "alias pscw='ps auxww --sort -%cpu | head -15'" | sudo tee -a ~/.$el_shell
+echo "alias psc='ps -eo comm,pmem,pcpu,uname,pid,etime --sort -pcpu | head -15'" | sudo tee -a ~/.$el_shell
 
 #Sshd
 echo -e "\n#ALIAS SSHD" | sudo tee -a ~/.$el_shell
 echo "alias sshd='sudo cat /etc/ssh/sshd_config'" | sudo tee -a ~/.$el_shell
-echo "alias sshda='cat /etc/ssh/sshd_config | grep 'PubkeyAuthentication\|PasswordAuthentication\|PermitRootLogin\|PermitEmptyPasswords''" | sudo tee -a ~/.$el_shell
+echo 'alias sshda="cat /etc/ssh/sshd_config | grep -e PubkeyAuthentication -e PasswordAuthentication -e PermitRootLogin -e PermitEmptyPasswords"' | sudo tee -a ~/.$el_shell
 
 # Sistema
 echo -e "\n#ALIAS SISTEMA" | sudo tee -a ~/.$el_shell
@@ -63,7 +77,7 @@ echo "alias gcm='git commit -m'" | sudo tee -a ~/.$el_shell
 echo "alias gph='git push -u origin'" | sudo tee -a ~/.$el_shell
 echo "alias gck='git checkout'" | sudo tee -a ~/.$el_shell
 echo "alias gpl='git pull'" | sudo tee -a ~/.$el_shell
-echo "alias gacp='git add . && git commit -m 'New changes' && git push -u origin'" | sudo tee -a ~/.$el_shell
+echo "alias gacp='git add . && git commit -m 'New changes' && git push'" | sudo tee -a ~/.$el_shell
 
 # Tmux
 echo -e "\n#ALIAS TMUX" | sudo tee -a ~/.$el_shell
@@ -92,6 +106,7 @@ echo "alias dka='docker rm \$(docker stop \$(docker ps -aq))'" | sudo tee -a ~/.
 echo "alias dki='docker rmi -f \$(docker images -aq)'" | sudo tee -a ~/.$el_shell
 echo "alias drd='docker run -d'" | sudo tee -a ~/.$el_shell
 echo "alias drd='docker run'" | sudo tee -a ~/.$el_shell
+echo "alias dxi='docker exec -it'" | sudo tee -a ~/.$el_shell
 echo "alias dv='docker volume'" | sudo tee -a ~/.$el_shell
 echo "alias dvl='docker volume ls'" | sudo tee -a ~/.$el_shell
 echo "alias dvc='docker volume create'" | sudo tee -a ~/.$el_shell
@@ -105,3 +120,5 @@ echo "alias dncn='docker network connect'" | sudo tee -a ~/.$el_shell
 echo "alias dndc='docker network disconnect'" | sudo tee -a ~/.$el_shell
 echo "alias dnr='docker network rm'" | sudo tee -a ~/.$el_shell
 echo "alias dnp='docker network prune'" | sudo tee -a ~/.$el_shell
+echo "alias dcmu='docker-compose up -d'" | sudo tee -a ~/.$el_shell
+echo "alias dcmd='docker-compose down'" | sudo tee -a ~/.$el_shell
