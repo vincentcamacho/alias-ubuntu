@@ -81,8 +81,6 @@ echo "alias gacp='git add . && git commit -m 'New changes' && git push'" | sudo 
 echo "alias gacpm='git add . && git commit -m 'New changes' && git push -u origin master'" | sudo tee -a ~/.$el_shell
 echo "alias gacpn='git add . && git commit -m 'New changes' && git push -u origin main'" | sudo tee -a ~/.$el_shell
 
-
-
 # Tmux
 echo -e "\n#ALIAS TMUX" | sudo tee -a ~/.$el_shell
 echo "alias tml='tmux ls'" | sudo tee -a ~/.$el_shell
