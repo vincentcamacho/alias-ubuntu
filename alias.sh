@@ -84,6 +84,10 @@ echo 'alias tprx="curl -k -x "http://proxy.dev.idnomic.com:3128" -L "https://www
 echo 'alias proxyon="export http_proxy="http://proxy.dev.idnomic.com:3128";export https_proxy="http://proxy.dev.idnomic.com:3128""' | sudo tee -a ~/.$el_shell
 echo 'alias proxyoff="unset http_proxy;unset https_proxy"' | sudo tee -a ~/.$el_shell
 
+# Como obtener todos los plugins de un server corriendo Jenkins
+# JENKINS_HOST=vincent:123@localhost:8080
+# curl -sSL "http://$JENKINS_HOST/pluginManager/api/xml?depth=1&xpath=/*/*/shortName|/*/*/version&wrapper=plugins" | perl -pe 's/.*?<shortName>([\w-]+).*?<version>([^<]+)()(<\/\w+>)+/\1 \2\n/g'|sed 's/ /:/'
+
 # Git Alias
 echo -e "\n#ALIAS GIT" | sudo tee -a ~/.$el_shell
 echo "alias gst='git status'" | sudo tee -a ~/.$el_shell
