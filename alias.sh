@@ -17,6 +17,7 @@ echo "alias lc='colorls -lA --sd'" | sudo tee -a ~/.$el_shell
 echo "alias lx='exa -lhgi'" | sudo tee -a ~/.$el_shell
 echo "alias scf='cat ~/.ssh/config'" | sudo tee -a ~/.$el_shell
 echo "alias srz='source ~/.zshrc'" | sudo tee -a ~/.$el_shell
+echo "alias sps='touch super-script.sh && chmod +x super-script.sh && sudo vim super-script.sh'" | sudo tee -a ~/.$el_shell
 
 # Basicos
 echo -e "\n#ALIAS BASICOS" | sudo tee -a ~/.$el_shell
@@ -69,19 +70,6 @@ echo -e "\n#ALIAS SISTEMA" | sudo tee -a ~/.$el_shell
 echo "alias vmmc='sudo sysctl vm.max_map_count'" | sudo tee -a ~/.$el_shell
 echo "alias ffm='sudo sysctl fs.file-max'" | sudo tee -a ~/.$el_shell
 
-# Git Alias
-echo -e "\n#ALIAS GIT" | sudo tee -a ~/.$el_shell
-echo "alias gst='git status'" | sudo tee -a ~/.$el_shell
-echo "alias gad='git add'" | sudo tee -a ~/.$el_shell
-echo "alias gaa='git add .'" | sudo tee -a ~/.$el_shell
-echo "alias gcm='git commit -m'" | sudo tee -a ~/.$el_shell
-echo "alias gph='git push -u origin'" | sudo tee -a ~/.$el_shell
-echo "alias gck='git checkout'" | sudo tee -a ~/.$el_shell
-echo "alias gpl='git pull'" | sudo tee -a ~/.$el_shell
-echo "alias gacp='git add . && git commit -m 'New changes' && git push'" | sudo tee -a ~/.$el_shell
-echo "alias gacpm='git add . && git commit -m 'New changes' && git push -u origin master'" | sudo tee -a ~/.$el_shell
-echo "alias gacpn='git add . && git commit -m 'New changes' && git push -u origin main'" | sudo tee -a ~/.$el_shell
-
 # Tmux
 echo -e "\n#ALIAS TMUX" | sudo tee -a ~/.$el_shell
 echo "alias tml='tmux ls'" | sudo tee -a ~/.$el_shell
@@ -96,6 +84,22 @@ echo 'alias tprx="curl -k -x "http://proxy.dev.idnomic.com:3128" -L "https://www
 echo 'alias proxyon="export http_proxy="http://proxy.dev.idnomic.com:3128";export https_proxy="http://proxy.dev.idnomic.com:3128""' | sudo tee -a ~/.$el_shell
 echo 'alias proxyoff="unset http_proxy;unset https_proxy"' | sudo tee -a ~/.$el_shell
 
+# Git Alias
+echo -e "\n#ALIAS GIT" | sudo tee -a ~/.$el_shell
+echo "alias gst='git status'" | sudo tee -a ~/.$el_shell
+echo "alias gad='git add'" | sudo tee -a ~/.$el_shell
+echo "alias gaa='git add .'" | sudo tee -a ~/.$el_shell
+echo "alias gcm='git commit -m'" | sudo tee -a ~/.$el_shell
+echo "alias gph='git push -u origin'" | sudo tee -a ~/.$el_shell
+echo "alias gck='git checkout'" | sudo tee -a ~/.$el_shell
+echo "alias gpl='git pull'" | sudo tee -a ~/.$el_shell
+echo "alias gacp='git add . && git commit -m 'New changes' && git push'" | sudo tee -a ~/.$el_shell
+echo "alias gacpm='git add . && git commit -m 'New changes' && git push -u origin master'" | sudo tee -a ~/.$el_shell
+echo "alias gacpn='git add . && git commit -m 'New changes' && git push -u origin main'" | sudo tee -a ~/.$el_shell
+echo "alias gcn='git clone'" | sudo tee -a ~/.$el_shell
+echo "alias grso='git remote show origin'" | sudo tee -a ~/.$el_shell
+echo "alias grao='git remote add origin'" | sudo tee -a ~/.$el_shell
+
 # Docker
 echo -e "\n#ALIAS DOCKER" | sudo tee -a ~/.$el_shell
 echo "alias d='docker'" | sudo tee -a ~/.$el_shell
@@ -109,6 +113,7 @@ echo "alias dki='docker rmi -f \$(docker images -aq)'" | sudo tee -a ~/.$el_shel
 echo "alias dri='docker rmi -f'" | sudo tee -a ~/.$el_shell
 echo "alias drd='docker run -d'" | sudo tee -a ~/.$el_shell
 echo "alias drd='docker run'" | sudo tee -a ~/.$el_shell
+echo "alias din='docker inspect'" | sudo tee -a ~/.$el_shell
 echo "alias dxi='docker exec -it'" | sudo tee -a ~/.$el_shell
 echo "alias dv='docker volume'" | sudo tee -a ~/.$el_shell
 echo "alias dvl='docker volume ls'" | sudo tee -a ~/.$el_shell
