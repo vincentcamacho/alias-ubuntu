@@ -70,6 +70,19 @@ echo -e "\n#ALIAS SISTEMA" | sudo tee -a ~/.$el_shell
 echo "alias vmmc='sudo sysctl vm.max_map_count'" | sudo tee -a ~/.$el_shell
 echo "alias ffm='sudo sysctl fs.file-max'" | sudo tee -a ~/.$el_shell
 
+# Git
+echo -e "\n#ALIAS GIT" | sudo tee -a ~/.$el_shell
+echo "alias gst='git status'" | sudo tee -a ~/.$el_shell
+echo "alias gad='git add'" | sudo tee -a ~/.$el_shell
+echo "alias gaa='git add .'" | sudo tee -a ~/.$el_shell
+echo "alias gcm='git commit -m'" | sudo tee -a ~/.$el_shell
+echo "alias gph='git push -u origin'" | sudo tee -a ~/.$el_shell
+echo "alias gck='git checkout'" | sudo tee -a ~/.$el_shell
+echo "alias gpl='git pull'" | sudo tee -a ~/.$el_shell
+echo "alias gacp='git add . && git commit -m 'New changes' && git push'" | sudo tee -a ~/.$el_shell
+echo "alias gacpm='git add . && git commit -m 'New changes' && git push -u origin master'" | sudo tee -a ~/.$el_shell
+echo "alias gacpn='git add . && git commit -m 'New changes' && git push -u origin main'" | sudo tee -a ~/.$el_shell
+
 # Tmux
 echo -e "\n#ALIAS TMUX" | sudo tee -a ~/.$el_shell
 echo "alias tml='tmux ls'" | sudo tee -a ~/.$el_shell
