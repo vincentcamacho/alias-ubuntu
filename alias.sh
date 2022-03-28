@@ -134,3 +134,5 @@ echo "alias dnr='docker network rm'" | sudo tee -a ~/.$el_shell
 echo "alias dnp='docker network prune'" | sudo tee -a ~/.$el_shell
 echo "alias dcmu='docker-compose up -d'" | sudo tee -a ~/.$el_shell
 echo "alias dcmd='docker-compose down'" | sudo tee -a ~/.$el_shell
+echo "alias dcmd='docker-compose down'" | sudo tee -a ~/.$el_shell
+echo "alias ddd='docker ps && docker ps -a && docker images'" | sudo tee -a ~/.$el_shell
