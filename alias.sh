@@ -18,6 +18,7 @@ echo "alias lx='exa -lhgi'" | sudo tee -a ~/.$el_shell
 echo "alias scf='cat ~/.ssh/config'" | sudo tee -a ~/.$el_shell
 echo "alias srz='source ~/.zshrc'" | sudo tee -a ~/.$el_shell
 echo "alias sps='touch super-script.sh && chmod +x super-script.sh && sudo vim super-script.sh'" | sudo tee -a ~/.$el_shell
+echo "alias rslv='echo \"nameserver 8.8.8.8\" | sudo tee /etc/resolv.conf > /dev/null'" | sudo tee -a ~/.$el_shell
 
 # Basicos
 echo -e "\n#ALIAS BASICOS" | sudo tee -a ~/.$el_shell
