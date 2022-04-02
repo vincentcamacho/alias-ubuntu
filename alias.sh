@@ -139,3 +139,6 @@ echo "alias dcmu='docker-compose up -d'" | sudo tee -a ~/.$el_shell
 echo "alias dcmd='docker-compose down'" | sudo tee -a ~/.$el_shell
 echo "alias dcmd='docker-compose down'" | sudo tee -a ~/.$el_shell
 echo "alias ddd='docker ps && docker ps -a && docker images'" | sudo tee -a ~/.$el_shell
+echo "alias ddd2='docker ps && docker ps -a && docker images'" | sudo tee -a ~/.$el_shell
+
+# Actualizando el archivo y Will Smith es un cabron
