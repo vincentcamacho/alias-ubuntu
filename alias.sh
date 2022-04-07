@@ -122,9 +122,12 @@ echo "alias drm='docker rm -f'" | sudo tee -a ~/.$el_shell
 echo "alias dka='docker rm \$(docker stop \$(docker ps -aq))'" | sudo tee -a ~/.$el_shell
 echo "alias dki='docker rmi -f \$(docker images -aq)'" | sudo tee -a ~/.$el_shell
 echo "alias dri='docker rmi -f'" | sudo tee -a ~/.$el_shell
+echo "alias drn='docker run'" | sudo tee -a ~/.$el_shell
 echo "alias drd='docker run -d'" | sudo tee -a ~/.$el_shell
-echo "alias drd='docker run'" | sudo tee -a ~/.$el_shell
+echo "alias drdn='docker run -d --name'" | sudo tee -a ~/.$el_shell
+echo "alias drdinull='docker run -d -it --name servidor ubuntu:latest tail -f /dev/null'" | sudo tee -a ~/.$el_shell
 echo "alias din='docker inspect'" | sudo tee -a ~/.$el_shell
+echo "alias dipid='docker inspect --format '{{.State.Pid}}''" | sudo tee -a ~/.$el_shell
 echo "alias dxi='docker exec -it'" | sudo tee -a ~/.$el_shell
 echo "alias dv='docker volume'" | sudo tee -a ~/.$el_shell
 echo "alias dvl='docker volume ls'" | sudo tee -a ~/.$el_shell
@@ -144,5 +147,6 @@ echo "alias dcmd='docker-compose down'" | sudo tee -a ~/.$el_shell
 echo "alias dcmd='docker-compose down'" | sudo tee -a ~/.$el_shell
 echo "alias ddd='docker ps && docker ps -a && docker images'" | sudo tee -a ~/.$el_shell
 echo "alias ddd2='docker ps && docker ps -a && docker images'" | sudo tee -a ~/.$el_shell
-
-# Actualizando el archivo y Will Smith es un cabron
+echo "alias dlg='docker logs'" | sudo tee -a ~/.$el_shell
+echo "alias dlf='docker logs -f'" | sudo tee -a ~/.$el_shell
+echo "alias dlf10='docker logs --tail 10 -f'" | sudo tee -a ~/.$el_shell
