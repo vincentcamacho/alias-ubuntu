@@ -105,6 +105,10 @@ echo "alias gacpn='git add . && git commit -m \"NewChanges\" && git push -u orig
 echo "alias gcn='git clone'" | sudo tee -a ~/.$el_shell
 echo "alias grso='git remote show origin'" | sudo tee -a ~/.$el_shell
 echo "alias grao='git remote add origin'" | sudo tee -a ~/.$el_shell
+echo "alias gbr='git branch -r'" | sudo tee -a ~/.$el_shell
+echo "alias gft='git fetch'" | sudo tee -a ~/.$el_shell
+echo "alias gfa='git fetch -all'" | sudo tee -a ~/.$el_shell
+echo "alias gpa='git pull -all'" | sudo tee -a ~/.$el_shell
 
 # Docker
 echo -e "\n#ALIAS DOCKER" | sudo tee -a ~/.$el_shell
