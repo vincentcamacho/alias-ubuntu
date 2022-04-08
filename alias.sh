@@ -103,6 +103,7 @@ echo "alias gacp='git add . && git commit -m \"NewChanges\" && git push'" | sudo
 echo "alias gacpm='git add . && git commit -m \"NewChanges\" && git push -u origin master'" | sudo tee -a ~/.$el_shell
 echo "alias gacpn='git add . && git commit -m \"NewChanges\" && git push -u origin main'" | sudo tee -a ~/.$el_shell
 echo "alias gcn='git clone'" | sudo tee -a ~/.$el_shell
+echo "alias gcna='git clone https://github.com/jvinc86/web-astronauta.git'" | sudo tee -a ~/.$el_shell
 echo "alias grso='git remote show origin'" | sudo tee -a ~/.$el_shell
 echo "alias grao='git remote add origin'" | sudo tee -a ~/.$el_shell
 echo "alias gbr='git branch -r'" | sudo tee -a ~/.$el_shell
