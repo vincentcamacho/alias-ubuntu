@@ -1,14 +1,21 @@
 #!/bin/bash
-# CREACION DE ALIAS
 
 # OJO SELECCIONAR SHELL:  bashrc  o  zshrc
 el_shell=zshrc
+
+#Configuracion para WSL para usar Vagrant desde ahi hacia un VirtualBox instalado en Windows
+echo -e "\n#WSL + VirtualBox + Vagrant" | sudo tee -a ~/.$el_shell
+echo 'export VAGRANT_WSL_ENABLE_WINDOWS_ACCESS="1"' | sudo tee -a ~/.$el_shell
+echo 'export PATH="$PATH:/mnt/c/Program Files/Oracle/VirtualBox"' | sudo tee -a ~/.$el_shell
+
+# CREACION DE ALIAS
 
 echo -e "\n#ALIAS NECESARIOS" | sudo tee -a ~/.$el_shell
 # echo "alias cna='rm -rf alias.sh && touch alias.sh && chmod +x alias.sh && vim alias.sh'" | sudo tee -a ~/.$el_shell
 echo "alias cnz='rm -rf ~/.zshrc && cp ~/.zshrc-backup ~/.zshrc && source /home/vcamacho/ps/alias-ubuntu/alias.sh && source ~/.zshrc'" | sudo tee -a ~/.$el_shell
 echo "alias bsh='sudo cat ~/.bashrc'" | sudo tee -a ~/.$el_shell
 echo "alias zsh='sudo cat ~/.zshrc'" | sudo tee -a ~/.$el_shell
+echo "alias zg='sudo cat ~/.zshrc | grep'" | sudo tee -a ~/.$el_shell
 echo "alias ssha='eval \$(ssh-agent) && ssh-add'" | sudo tee -a ~/.$el_shell
 echo "alias fb='eval \$(ssh-agent) && ssh-add && ssh fac-bastion'" | sudo tee -a ~/.$el_shell
 # echo "alias cns='echo \"#!/bin/bash\" >> script.sh && chmod +x script.sh && vim script.sh'" | sudo tee -a ~/.$el_shell
@@ -72,7 +79,6 @@ echo -e "\n#SSH KEYS" | sudo tee -a ~/.$el_shell
 echo "alias skgr='ssh-keygen -f \"~/.ssh/known_hosts\" -R'" | sudo tee -a ~/.$el_shell
 echo "alias skgrs='ssh-keygen -f \"~/.ssh/known_hosts\" -R'" | sudo tee -a ~/.$el_shell
 echo "alias skged='ssh-keygen -t '" | sudo tee -a ~/.$el_shell
-
 
 # Vagrant
 echo -e "\n#VAGRANT" | sudo tee -a ~/.$el_shell
