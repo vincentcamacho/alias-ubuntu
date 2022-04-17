@@ -66,10 +66,31 @@ echo -e "\n#ALIAS SSHD" | sudo tee -a ~/.$el_shell
 echo "alias sshd='sudo cat /etc/ssh/sshd_config'" | sudo tee -a ~/.$el_shell
 echo 'alias sshda="cat /etc/ssh/sshd_config | grep -e PubkeyAuthentication -e PasswordAuthentication -e PermitRootLogin -e PermitEmptyPasswords"' | sudo tee -a ~/.$el_shell
 
+# SSH KEYS
+echo -e "\n#SSH KEYS" | sudo tee -a ~/.$el_shell
+# 
+echo "alias skgr='ssh-keygen -f \"~/.ssh/known_hosts\" -R'" | sudo tee -a ~/.$el_shell
+echo "alias skgrs='ssh-keygen -f \"~/.ssh/known_hosts\" -R'" | sudo tee -a ~/.$el_shell
+echo "alias skged='ssh-keygen -t '" | sudo tee -a ~/.$el_shell
+
+
+# Vagrant
+echo -e "\n#VAGRANT" | sudo tee -a ~/.$el_shell
+echo "alias vgu='vagrant up'" | sudo tee -a ~/.$el_shell
+# echo "alias vgd='vagrant destroy -f && mi_vm=${PWD##*/} && sudo rm -rf /mnt/c/Users/jvinc/VirtualBox\ VMs/$mi_vm && sudo rm -rf .vagrant/ && VBoxManage hostonlyif remove "VirtualBox Host-Only Ethernet Adapter" && ssh-keygen -f "/home/vcamacho/.ssh/known_hosts" -R'" | sudo tee -a ~/.$el_shell
+echo "alias vgr='vagrant halt && mi_vm=\${PWD##*/} && VBoxManage unregistervm \$mi_vm -delete && sudo rm -rf /mnt/c/Users/jvinc/VirtualBox\ VMs/\$mi_vm && sudo rm -rf .vagrant/ && VBoxManage hostonlyif remove \"VirtualBox Host-Only Ethernet Adapter\" && ssh-keygen -f \"/home/vcamacho/.ssh/known_hosts\" -R'" | sudo tee -a ~/.$el_shell
+echo "alias vgh='vagrant halt'" | sudo tee -a ~/.$el_shell
+
 # Sistema
 echo -e "\n#ALIAS SISTEMA" | sudo tee -a ~/.$el_shell
 echo "alias vmmc='sudo sysctl vm.max_map_count'" | sudo tee -a ~/.$el_shell
 echo "alias ffm='sudo sysctl fs.file-max'" | sudo tee -a ~/.$el_shell
+
+# IP Tables
+# sudo iptables -L
+# sudo iptables -A INPUT -p icmp --icmp-type echo-request -j REJECT
+# sudo iptables -D INPUT -p icmp --icmp-type echo-request -j REJECT
+# sudo iptables -F
 
 # Tmux
 echo -e "\n#ALIAS TMUX" | sudo tee -a ~/.$el_shell
