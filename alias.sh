@@ -77,19 +77,19 @@ echo 'alias sshda="cat /etc/ssh/sshd_config | grep -e PubkeyAuthentication -e Pa
 
 # SSH KEYS
 echo -e "\n#SSH KEYS" | sudo tee -a ~/.$el_shell
-echo "alias skged='echo \"Introduce nombre de la llave:\" && read LLAVE && echo \"Introduce contrasena de la llave: (v = vacia, sin contrasena)\" && read CONTRASENA && if [[ \$CONTRASENA = v ]]; then ssh-keygen -t ed25519 -b 521 -f ~/.ssh/\$LLAVE -q -N \"\";else ssh-keygen -t ed25519 -b 521 -f ~/.ssh/\$LLAVE -q -N \$CONTRASENA; fi'" | sudo tee -a ~/.$el_shell
-echo "alias skgrsa='echo \"Introduce nombre de la llave:\" && read LLAVE && echo \"Introduce contrasena de la llave: (v = vacia, sin contrasena)\" && read CONTRASENA && if [[ \$CONTRASENA = v ]]; then ssh-keygen -t rsa -b 4096 -f ~/.ssh/\$LLAVE -q -N \"\";else ssh-keygen -t rsa -b 4096 -f ~/.ssh/\$LLAVE -q -N \$CONTRASENA; fi'" | sudo tee -a ~/.$el_shell
+echo "alias skged='echo -n \"Introduce nombre de la llave:\" && read LLAVE && echo -n \"Introduce contrasena de la llave: (v = vacia, sin contrasena)\" && read CONTRASENA && if [[ \$CONTRASENA = v ]]; then ssh-keygen -t ed25519 -b 521 -f ~/.ssh/\$LLAVE -q -N \"\";else ssh-keygen -t ed25519 -b 521 -f ~/.ssh/\$LLAVE -q -N \$CONTRASENA; fi'" | sudo tee -a ~/.$el_shell
+echo "alias skgrsa='echo -n \"Introduce nombre de la llave:\" && read LLAVE && echo -n \"Introduce contrasena de la llave: (v = vacia, sin contrasena)\" && read CONTRASENA && if [[ \$CONTRASENA = v ]]; then ssh-keygen -t rsa -b 4096 -f ~/.ssh/\$LLAVE -q -N \"\";else ssh-keygen -t rsa -b 4096 -f ~/.ssh/\$LLAVE -q -N \$CONTRASENA; fi'" | sudo tee -a ~/.$el_shell
 #     Asi seria el comando de arriba sin usar alias:
-#     echo "Introduce nombre de la llave:" && read LLAVE && echo "Introduce contrasena de la llave: (v = vacia, sin contrasena)" && read CONTRASENA && if [[ $CONTRASENA = v ]]; then ssh-keygen -t ed25519 -b 521 -f ~/.ssh/$LLAVE -q -N "";else ssh-keygen -t ed25519 -b 521 -f ~/.ssh/$LLAVE -q -N $CONTRASENA; fi
-echo "alias skgdip='echo \"Introduce NOMBRE o IP del servidor que deseas remover de known_hosts:\" && read SERVIDOR_IP && ssh-keygen -f ~/.ssh/known_hosts -R \$SERVIDOR_IP'" | sudo tee -a ~/.$el_shell
-echo "alias skgy='echo \"PROBAR UNA KEY - Introduce llave que deseas probar:\" && read LLAVE && ssh-keygen -y -f ~/.ssh/\$LLAVE'" | sudo tee -a ~/.$el_shell
+#     echo -n "Introduce nombre de la llave:" && read LLAVE && echo -n "Introduce contrasena de la llave: (v = vacia, sin contrasena)" && read CONTRASENA && if [[ $CONTRASENA = v ]]; then ssh-keygen -t ed25519 -b 521 -f ~/.ssh/$LLAVE -q -N "";else ssh-keygen -t ed25519 -b 521 -f ~/.ssh/$LLAVE -q -N $CONTRASENA; fi
+echo "alias skgdip='echo -n \"Introduce NOMBRE o IP del servidor que deseas remover de known_hosts:\" && read SERVIDOR_IP && ssh-keygen -f ~/.ssh/known_hosts -R \$SERVIDOR_IP'" | sudo tee -a ~/.$el_shell
+echo "alias skgy='echo -n \"PROBAR UNA KEY - Introduce llave que deseas probar:\" && read LLAVE && ssh-keygen -y -f ~/.ssh/\$LLAVE'" | sudo tee -a ~/.$el_shell
 echo "alias lsk='ls ~/.ssh'" | sudo tee -a ~/.$el_shell
 
 # Vagrant
 echo -e "\n#VAGRANT" | sudo tee -a ~/.$el_shell
 echo "alias vgu='vagrant up'" | sudo tee -a ~/.$el_shell
 echo "alias vgh='vagrant halt'" | sudo tee -a ~/.$el_shell
-echo "alias vgka='vagrant destroy -f && mi_vm=\${PWD##*/} && sudo rm -rf /mnt/c/Users/jvinc/VirtualBox\ VMs/\$mi_vm && sudo rm -rf /mnt/c/Users/jvinc/VirtualBox\ VMs/\$mi_vm && sudo rm -rf .vagrant/ && echo \"Introduce NOMBRE o IP del servidor que deseas remover de known_hosts:\" && read SERVIDOR_IP && ssh-keygen -f ~/.ssh/known_hosts -R \$SERVIDOR_IP && echo -n \"Deseas borrar la Interfaz de Red? No recomendado si tienes varias VMs creadas (n/y): \" && read RESPUESTA && if [[ \$RESPUESTA = y ]]; then echo \"Eliminando la interfaz de red de Virtual Box, el resto de la limpieza se ha realizo con EXITO\" && VBoxManage hostonlyif remove \"VirtualBox Host-Only Ethernet Adapter\" ;else echo \"La limpieza se ha realido con EXITO sin borrar la NIC de VirtualBox\"; fi'" | sudo tee -a ~/.$el_shell
+echo "alias vgka='vagrant destroy -f && mi_vm=\${PWD##*/} && sudo rm -rf /mnt/c/Users/jvinc/VirtualBox\ VMs/\$mi_vm && sudo rm -rf /mnt/c/Users/jvinc/VirtualBox\ VMs/\$mi_vm && sudo rm -rf .vagrant/ && echo -n \"Introduce NOMBRE o IP del servidor que deseas remover de known_hosts:\" && read SERVIDOR_IP && ssh-keygen -f ~/.ssh/known_hosts -R \$SERVIDOR_IP && echo -n \"Deseas borrar la Interfaz de Red? No recomendado si tienes varias VMs creadas (n/y): \" && read RESPUESTA && if [[ \$RESPUESTA = y ]]; then echo \"Eliminando la interfaz de red de Virtual Box, el resto de la limpieza se ha realizo con EXITO\" && VBoxManage hostonlyif remove \"VirtualBox Host-Only Ethernet Adapter\" ;else echo \"La limpieza se ha realido con EXITO sin borrar la NIC de VirtualBox\"; fi'" | sudo tee -a ~/.$el_shell
 # Abajo se ve el comando separado en lineas para mejor visibilidad
 # -------------------------------------------------------------
 # echo "alias vgka='
@@ -97,7 +97,7 @@ echo "alias vgka='vagrant destroy -f && mi_vm=\${PWD##*/} && sudo rm -rf /mnt/c/
 # && mi_vm=\${PWD##*/} && sudo rm -rf /mnt/c/Users/jvinc/VirtualBox\ VMs/\$mi_vm 
 # && sudo rm -rf /mnt/c/Users/jvinc/VirtualBox\ VMs/\$mi_vm 
 # && sudo rm -rf .vagrant/ 
-# && echo \"Introduce NOMBRE o IP del servidor que deseas remover de known_hosts:\" && read SERVIDOR_IP && ssh-keygen -f /home/vcamacho/.ssh/known_hosts -R \$SERVIDOR_IP 
+# && echo -n \"Introduce NOMBRE o IP del servidor que deseas remover de known_hosts:\" && read SERVIDOR_IP && ssh-keygen -f /home/vcamacho/.ssh/known_hosts -R \$SERVIDOR_IP 
 # && echo -n \"Deseas borrar la Interfaz de Red? No recomendado si tienes varias VMs creadas (n/y): \" && read RESPUESTA && if [[ \$RESPUESTA = y ]]; then echo \"Eliminando la interfaz de red de Virtual Box, el resto de la limpieza se ha realizo con EXITO\" && VBoxManage hostonlyif remove \"VirtualBox Host-Only Ethernet Adapter\" ;else echo \"La limpieza se ha realido con EXITO sin borrar la NIC de VirtualBox\"; fi
 # '" | sudo tee -a ~/.$el_shell
 # ------------- Si lo hicieramos usando     vagrant halt    y   VBoxManage unregistervm  ------------------------------------------------
@@ -107,7 +107,7 @@ echo "alias vgka='vagrant destroy -f && mi_vm=\${PWD##*/} && sudo rm -rf /mnt/c/
 # && sudo rm -rf /mnt/c/Users/jvinc/VirtualBox\ VMs/\$mi_vm 
 # && sudo rm -rf .vagrant/ 
 # && VBoxManage hostonlyif remove \"VirtualBox Host-Only Ethernet Adapter\" 
-# && echo \"Introduce NOMBRE o IP del servidor que deseas remover de known_hosts:\" && read ipservidor  && ssh-keygen -f /home/vcamacho/.ssh/known_hosts -R \$ipservidor
+# && echo -n \"Introduce NOMBRE o IP del servidor que deseas remover de known_hosts:\" && read ipservidor  && ssh-keygen -f /home/vcamacho/.ssh/known_hosts -R \$ipservidor
 # '" | sudo tee -a ~/.$el_shell
 
 # VirtualBox
