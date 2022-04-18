@@ -113,6 +113,7 @@ echo "alias vgka='vagrant destroy -f && mi_vm=\${PWD##*/} && sudo rm -rf /mnt/c/
 # VirtualBox
 echo -e "\n#VIRTUAL BOX" | sudo tee -a ~/.$el_shell
 echo "alias vbrn='echo -n \"Deseas borrar la Interfaz de Red? No recomendado si tienes varias VMs creadas (n/y): \" && read RESPUESTA && if [[ \$RESPUESTA = y ]]; then echo \"Eliminando la interfaz de red de Virtual Box, el resto de la limpieza se ha realizo con EXITO\" && VBoxManage hostonlyif remove \"VirtualBox Host-Only Ethernet Adapter\" ;else echo \"La limpieza se ha realido con EXITO sin borrar la NIC de VirtualBox\"; fi'" | sudo tee -a ~/.$el_shell
+echo "alias vbun='mi_vm=\${PWD##*/} && VBoxManage unregistervm \$mi_vm -delete'" | sudo tee -a ~/.$el_shell
 
 # Sistema
 echo -e "\n#ALIAS SISTEMA" | sudo tee -a ~/.$el_shell
