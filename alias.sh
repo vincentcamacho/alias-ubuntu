@@ -70,19 +70,20 @@ echo "alias psm='ps -eo comm,pmem,pcpu,uname,pid,etime --sort -pmem | head -15'"
 echo "alias pscw='ps auxww --sort -%cpu | head -15'" | sudo tee -a ~/.$el_shell
 echo "alias psc='ps -eo comm,pmem,pcpu,uname,pid,etime --sort -pcpu | head -15'" | sudo tee -a ~/.$el_shell
 
-#Sshd
+#Configurar Formas de Autenticacion /etc/ssh/sshd_config
 echo -e "\n#ALIAS SSHD" | sudo tee -a ~/.$el_shell
 echo "alias sshd='sudo cat /etc/ssh/sshd_config'" | sudo tee -a ~/.$el_shell
 echo 'alias sshda="cat /etc/ssh/sshd_config | grep -e PubkeyAuthentication -e PasswordAuthentication -e PermitRootLogin -e PermitEmptyPasswords"' | sudo tee -a ~/.$el_shell
 
 # SSH KEYS
 echo -e "\n#SSH KEYS" | sudo tee -a ~/.$el_shell
-# echo "Introduce nombre de la llave:" && read LLAVE && echo "Introduce contrasena de la llave: (v = vacia, sin contrasena)" && read CONTRASENA && if [[ $CONTRASENA = v ]]; then ssh-keygen -t ed25519 -b 521 -f ~/.ssh/$LLAVE -q -N "";else ssh-keygen -t ed25519 -b 521 -f ~/.ssh/$LLAVE -q -N $CONTRASENA; fi
 echo "alias skged='echo \"Introduce nombre de la llave:\" && read LLAVE && echo \"Introduce contrasena de la llave: (v = vacia, sin contrasena)\" && read CONTRASENA && if [[ \$CONTRASENA = v ]]; then ssh-keygen -t ed25519 -b 521 -f ~/.ssh/\$LLAVE -q -N \"\";else ssh-keygen -t ed25519 -b 521 -f ~/.ssh/\$LLAVE -q -N \$CONTRASENA; fi'" | sudo tee -a ~/.$el_shell
 echo "alias skgrsa='echo \"Introduce nombre de la llave:\" && read LLAVE && echo \"Introduce contrasena de la llave: (v = vacia, sin contrasena)\" && read CONTRASENA && if [[ \$CONTRASENA = v ]]; then ssh-keygen -t rsa -b 4096 -f ~/.ssh/\$LLAVE -q -N \"\";else ssh-keygen -t rsa -b 4096 -f ~/.ssh/\$LLAVE -q -N \$CONTRASENA; fi'" | sudo tee -a ~/.$el_shell
+#     Asi seria el comando de arriba sin usar alias:
+#     echo "Introduce nombre de la llave:" && read LLAVE && echo "Introduce contrasena de la llave: (v = vacia, sin contrasena)" && read CONTRASENA && if [[ $CONTRASENA = v ]]; then ssh-keygen -t ed25519 -b 521 -f ~/.ssh/$LLAVE -q -N "";else ssh-keygen -t ed25519 -b 521 -f ~/.ssh/$LLAVE -q -N $CONTRASENA; fi
 echo "alias skgdip='echo \"Introduce NOMBRE o IP del servidor que deseas remover de known_hosts:\" && read SERVIDOR_IP && ssh-keygen -f ~/.ssh/known_hosts -R \$SERVIDOR_IP'" | sudo tee -a ~/.$el_shell
 echo "alias skgy='echo \"PROBAR UNA KEY - Introduce llave que deseas probar:\" && read LLAVE && ssh-keygen -y -f ~/.ssh/\$LLAVE'" | sudo tee -a ~/.$el_shell
-echo "alias lsks='ls ~/.ssh'" | sudo tee -a ~/.$el_shell
+echo "alias lsk='ls ~/.ssh'" | sudo tee -a ~/.$el_shell
 
 # Vagrant
 echo -e "\n#VAGRANT" | sudo tee -a ~/.$el_shell
