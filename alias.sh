@@ -1,4 +1,6 @@
 #!/bin/bash
+# Ejemplo de IF..ELSE en la misma linea
+#      echo -n "Introduce numero: " && read VAR && if [[ $VAR -gt 10 ]]; then echo "El numero $VAR es mayor que 10";else echo "Numero menor que 9"; fi
 
 # OJO SELECCIONAR SHELL:  bashrc  o  zshrc
 el_shell=zshrc
@@ -12,7 +14,7 @@ echo 'export PATH="$PATH:/mnt/c/Program Files/Oracle/VirtualBox"' | sudo tee -a 
 
 echo -e "\n#ALIAS NECESARIOS" | sudo tee -a ~/.$el_shell
 # echo "alias cna='rm -rf alias.sh && touch alias.sh && chmod +x alias.sh && vim alias.sh'" | sudo tee -a ~/.$el_shell
-echo "alias cnz='rm -rf ~/.zshrc && cp ~/.zshrc-backup ~/.zshrc && source /home/vcamacho/ps/alias-ubuntu/alias.sh && source ~/.zshrc'" | sudo tee -a ~/.$el_shell
+echo "alias cnz='rm -rf ~/.zshrc && cp ~/.zshrc-backup ~/.zshrc && source ~/ps/alias-ubuntu/alias.sh && source ~/.zshrc'" | sudo tee -a ~/.$el_shell
 echo "alias bsh='sudo cat ~/.bashrc'" | sudo tee -a ~/.$el_shell
 echo "alias zsh='sudo cat ~/.zshrc'" | sudo tee -a ~/.$el_shell
 echo "alias zg='sudo cat ~/.zshrc | grep'" | sudo tee -a ~/.$el_shell
@@ -75,17 +77,46 @@ echo 'alias sshda="cat /etc/ssh/sshd_config | grep -e PubkeyAuthentication -e Pa
 
 # SSH KEYS
 echo -e "\n#SSH KEYS" | sudo tee -a ~/.$el_shell
-# 
-echo "alias skgr='ssh-keygen -f \"~/.ssh/known_hosts\" -R'" | sudo tee -a ~/.$el_shell
-echo "alias skgrs='ssh-keygen -f \"~/.ssh/known_hosts\" -R'" | sudo tee -a ~/.$el_shell
-echo "alias skged='ssh-keygen -t '" | sudo tee -a ~/.$el_shell
+# echo "Introduce nombre de la llave:" && read LLAVE && echo "Introduce contrasena de la llave: (v = vacia, sin contrasena)" && read CONTRASENA && if [[ $CONTRASENA = v ]]; then ssh-keygen -t ed25519 -b 521 -f ~/.ssh/$LLAVE -q -N "";else ssh-keygen -t ed25519 -b 521 -f ~/.ssh/$LLAVE -q -N $CONTRASENA; fi
+echo "alias skged='echo \"Introduce nombre de la llave:\" && read LLAVE && echo \"Introduce contrasena de la llave: (v = vacia, sin contrasena)\" && read CONTRASENA && if [[ \$CONTRASENA = v ]]; then ssh-keygen -t ed25519 -b 521 -f ~/.ssh/\$LLAVE -q -N "";else ssh-keygen -t ed25519 -b 521 -f ~/.ssh/\$LLAVE -q -N \$CONTRASENA; fi'" | sudo tee -a ~/.$el_shell
+echo "alias skgrsa='echo \"Introduce nombre de la llave:\" && read LLAVE && echo \"Introduce contrasena de la llave: (v = vacia, sin contrasena)\" && read CONTRASENA && if [[ \$CONTRASENA = v ]]; then ssh-keygen -t rsa -b 4096 -f ~/.ssh/\$LLAVE -q -N "";else ssh-keygen -t rsa -b 4096 -f ~/.ssh/\$LLAVE -q -N \$CONTRASENA; fi'" | sudo tee -a ~/.$el_shell
+echo "alias skgdip='echo \"Introduce NOMBRE o IP del servidor que deseas remover de known_hosts:\" && read SERVIDOR_IP && ssh-keygen -f ~/.ssh/known_hosts -R \$SERVIDOR_IP'" | sudo tee -a ~/.$el_shell
 
 # Vagrant
 echo -e "\n#VAGRANT" | sudo tee -a ~/.$el_shell
 echo "alias vgu='vagrant up'" | sudo tee -a ~/.$el_shell
-# echo "alias vgd='vagrant destroy -f && mi_vm=${PWD##*/} && sudo rm -rf /mnt/c/Users/jvinc/VirtualBox\ VMs/$mi_vm && sudo rm -rf .vagrant/ && VBoxManage hostonlyif remove "VirtualBox Host-Only Ethernet Adapter" && ssh-keygen -f "/home/vcamacho/.ssh/known_hosts" -R'" | sudo tee -a ~/.$el_shell
-echo "alias vgr='vagrant halt && mi_vm=\${PWD##*/} && VBoxManage unregistervm \$mi_vm -delete && sudo rm -rf /mnt/c/Users/jvinc/VirtualBox\ VMs/\$mi_vm && sudo rm -rf .vagrant/ && VBoxManage hostonlyif remove \"VirtualBox Host-Only Ethernet Adapter\" && ssh-keygen -f \"/home/vcamacho/.ssh/known_hosts\" -R'" | sudo tee -a ~/.$el_shell
 echo "alias vgh='vagrant halt'" | sudo tee -a ~/.$el_shell
+echo "alias vgka='vagrant destroy -f && mi_vm=\${PWD##*/} && sudo rm -rf /mnt/c/Users/jvinc/VirtualBox\ VMs/\$mi_vm && sudo rm -rf /mnt/c/Users/jvinc/VirtualBox\ VMs/\$mi_vm && sudo rm -rf .vagrant/ && echo \"Introduce NOMBRE o IP del servidor que deseas remover de known_hosts:\" && read SERVIDOR_IP && ssh-keygen -f ~/.ssh/known_hosts -R \$SERVIDOR_IP && echo -n \"Deseas borrar la Interfaz de Red? No recomendado si tienes varias VMs creadas (n/y): \" && read RESPUESTA && if [[ \$RESPUESTA = y ]]; then echo \"Eliminando la interfaz de red de Virtual Box, el resto de la limpieza se ha realizo con EXITO\" && VBoxManage hostonlyif remove \"VirtualBox Host-Only Ethernet Adapter\" ;else echo \"La limpieza se ha realido con EXITO sin borrar la NIC de VirtualBox\"; fi'" | sudo tee -a ~/.$el_shell
+
+# echo "alias vgka='
+# vagrant destroy -f
+# && mi_vm=\${PWD##*/} && sudo rm -rf /mnt/c/Users/jvinc/VirtualBox\ VMs/\$mi_vm 
+# && sudo rm -rf /mnt/c/Users/jvinc/VirtualBox\ VMs/\$mi_vm 
+# && sudo rm -rf .vagrant/ 
+# && echo \"Introduce NOMBRE o IP del servidor que deseas remover de known_hosts:\" && read SERVIDOR_IP && ssh-keygen -f /home/vcamacho/.ssh/known_hosts -R \$SERVIDOR_IP 
+# && echo -n \"Deseas borrar la Interfaz de Red? No recomendado si tienes varias VMs creadas (n/y): \" && read RESPUESTA && if [[ \$RESPUESTA = y ]]; then echo \"Eliminando la interfaz de red de Virtual Box, el resto de la limpieza se ha realizo con EXITO\" && VBoxManage hostonlyif remove \"VirtualBox Host-Only Ethernet Adapter\" ;else echo \"La limpieza se ha realido con EXITO sin borrar la NIC de VirtualBox\"; fi
+# '" | sudo tee -a ~/.$el_shell
+
+# echo "alias vgd='
+# vagrant destroy -f
+# && mi_vm=\${PWD##*/} && sudo rm -rf /mnt/c/Users/jvinc/VirtualBox\ VMs/\$mi_vm 
+# && sudo rm -rf .vagrant/ 
+# && VBoxManage hostonlyif remove \"VirtualBox Host-Only Ethernet Adapter\"
+# && echo \"Introduce NOMBRE o IP del servidor que deseas remover de known_hosts:\" && read SERVIDOR_IP  && ssh-keygen -f /home/vcamacho/.ssh/known_hosts -R \$SERVIDOR_IP
+# '" | sudo tee -a ~/.$el_shell
+
+# echo "alias vgr='
+# vagrant halt 
+# && mi_vm=\${PWD##*/} && VBoxManage unregistervm \$mi_vm -delete 
+# && sudo rm -rf /mnt/c/Users/jvinc/VirtualBox\ VMs/\$mi_vm 
+# && sudo rm -rf .vagrant/ 
+# && VBoxManage hostonlyif remove \"VirtualBox Host-Only Ethernet Adapter\" 
+# && echo \"Introduce NOMBRE o IP del servidor que deseas remover de known_hosts:\" && read ipservidor  && ssh-keygen -f /home/vcamacho/.ssh/known_hosts -R \$ipservidor
+# '" | sudo tee -a ~/.$el_shell
+
+# VirtualBox
+echo -e "\n#VIRTUAL BOX" | sudo tee -a ~/.$el_shell
+echo "alias vgu='vagrant up'" | sudo tee -a ~/.$el_shell
 
 # Sistema
 echo -e "\n#ALIAS SISTEMA" | sudo tee -a ~/.$el_shell
