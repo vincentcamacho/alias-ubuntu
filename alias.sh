@@ -9,6 +9,7 @@ el_shell=zshrc
 echo -e "\n#WSL + VirtualBox + Vagrant" | sudo tee -a ~/.$el_shell
 echo 'export VAGRANT_WSL_ENABLE_WINDOWS_ACCESS="1"' | sudo tee -a ~/.$el_shell
 echo 'export PATH="$PATH:/mnt/c/Program Files/Oracle/VirtualBox"' | sudo tee -a ~/.$el_shell
+echo 'export USUARIO_WINDOWS="jvinc"' | sudo tee -a ~/.zshrc
 
 # CREACION DE ALIAS
 
@@ -85,11 +86,22 @@ echo "alias skgdip='echo -n \"Introduce NOMBRE o IP del servidor que deseas remo
 echo "alias skgy='echo -n \"PROBAR UNA KEY - Introduce llave que deseas probar:\" && read LLAVE && ssh-keygen -y -f ~/.ssh/\$LLAVE'" | sudo tee -a ~/.$el_shell
 echo "alias lsk='ls ~/.ssh'" | sudo tee -a ~/.$el_shell
 
+
+
+
+
+
+
+
 # Vagrant
 echo -e "\n#VAGRANT" | sudo tee -a ~/.$el_shell
 echo "alias vgu='vagrant up'" | sudo tee -a ~/.$el_shell
 echo "alias vgh='vagrant halt'" | sudo tee -a ~/.$el_shell
-echo "alias vgka='vagrant destroy -f && NOMBRE_VM=\$(cat Vagrantfile | grep -w \"vm_nombre_virtual_box = \" | cut -d '\"' -f 2) && sudo rm -rf /mnt/c/Users/jvinc/VirtualBox\ VMs/\$NOMBRE_VM && sudo rm -rf /mnt/c/Users/jvinc/VirtualBox\ VMs/\$mi_vm && sudo rm -rf .vagrant/ && SERVIDOR_IP=\$(cat ~/ps/vagrant/WSL-vagrant/centos-7/Vagrantfile | grep -w \"servidor_ip = \" | cut -b 16-28) && ssh-keygen -f ~/.ssh/known_hosts -R \$SERVIDOR_IP && echo -n \"Deseas borrar la Interfaz de Red? No recomendado si tienes varias VMs creadas (n/y): \" && read RESPUESTA && if [[ \$RESPUESTA = y ]]; then echo \"Eliminando la interfaz de red de Virtual Box, el resto de la limpieza se ha realizo con EXITO\" && VBoxManage hostonlyif remove \"VirtualBox Host-Only Ethernet Adapter\" ;else echo \"La limpieza se ha realido con EXITO sin borrar la NIC de VirtualBox\"; fi'" | sudo tee -a ~/.$el_shell
+echo "alias vgka='vagrant destroy -f && NOMBRE_VM=\${PWD##*/} && sudo rm -rf \"/mnt/c/Users/\$USUARIO_WINDOWS/VirtualBox VMs/\$NOMBRE_VM\" && sudo rm -rf .vagrant/ && SERVIDOR_IP=\$(cat Vagrantfile | grep -w \"servidor_ip = \" | cut -b 16-28) && ssh-keygen -f ~/.ssh/known_hosts -R \$SERVIDOR_IP && echo -n \"Deseas borrar la Interfaz de Red? No recomendado si tienes varias VMs creadas (n/y): \" && read RESPUESTA && if [[ \$RESPUESTA = y ]]; then echo \"Eliminando la interfaz de red de Virtual Box, el resto de la limpieza se ha realizo con EXITO\" && VBoxManage hostonlyif remove \"VirtualBox Host-Only Ethernet Adapter\" ;else echo \"La limpieza se ha realido con EXITO sin borrar la NIC de VirtualBox\"; fi'" | sudo tee -a ~/.$el_shell
+
+
+
+
 
 # VirtualBox
 echo -e "\n#VIRTUAL BOX" | sudo tee -a ~/.$el_shell
