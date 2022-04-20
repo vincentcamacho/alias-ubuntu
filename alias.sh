@@ -11,8 +11,7 @@ echo 'export VAGRANT_WSL_ENABLE_WINDOWS_ACCESS="1"' | sudo tee -a ~/.$el_shell
 echo 'export PATH="$PATH:/mnt/c/Program Files/Oracle/VirtualBox"' | sudo tee -a ~/.$el_shell
 echo 'export USUARIO_WINDOWS="jvinc"' | sudo tee -a ~/.zshrc
 
-# CREACION DE ALIAS
-
+# Alias ultra necesarios
 echo -e "\n#ALIAS NECESARIOS" | sudo tee -a ~/.$el_shell
 # echo "alias cna='rm -rf alias.sh && touch alias.sh && chmod +x alias.sh && vim alias.sh'" | sudo tee -a ~/.$el_shell
 echo "alias cnz='rm -rf ~/.zshrc && cp ~/.zshrc-backup ~/.zshrc && source ~/ps/alias-ubuntu/alias.sh && source ~/.zshrc'" | sudo tee -a ~/.$el_shell
@@ -86,28 +85,25 @@ echo "alias skgdip='echo -n \"Introduce NOMBRE o IP del servidor que deseas remo
 echo "alias skgy='echo -n \"PROBAR UNA KEY - Introduce llave que deseas probar:\" && read LLAVE && ssh-keygen -y -f ~/.ssh/\$LLAVE'" | sudo tee -a ~/.$el_shell
 echo "alias lsk='ls ~/.ssh'" | sudo tee -a ~/.$el_shell
 
-
-
-
-
-
-
-
 # Vagrant
 echo -e "\n#VAGRANT" | sudo tee -a ~/.$el_shell
 echo "alias vgu='vagrant up'" | sudo tee -a ~/.$el_shell
 echo "alias vgh='vagrant halt'" | sudo tee -a ~/.$el_shell
 echo "alias vgka='NOMBRE_VM=\${PWD##*/} && SERVIDOR_IP=\$(VBoxManage guestproperty get \$NOMBRE_VM \"/VirtualBox/GuestInfo/Net/1/V4/IP\" | cut -b 8-20) && vagrant destroy -f && sudo rm -rf \"/mnt/c/Users/\$USUARIO_WINDOWS/VirtualBox VMs/\$NOMBRE_VM\" && sudo rm -rf .vagrant/ && ssh-keygen -f ~/.ssh/known_hosts -R \$SERVIDOR_IP && ssh-keygen -f ~/.ssh/known_hosts -R \$NOMBRE_VM && sudo rm -rf ~/.ssh/known_hosts.old && echo -n \"Deseas borrar la Interfaz de Red? No recomendado si tienes varias VMs creadas (n/y): \" && read RESPUESTA && if [[ \$RESPUESTA = y ]]; then echo \"Eliminando la interfaz de red de Virtual Box, el resto de la limpieza se ha realizo con EXITO\" && VBoxManage hostonlyif remove \"VirtualBox Host-Only Ethernet Adapter\" ;else echo \"La limpieza se ha realido con EXITO sin borrar la NIC de VirtualBox\"; fi'" | sudo tee -a ~/.$el_shell
 
-
-
-
-
-
 # VirtualBox
 echo -e "\n#VIRTUAL BOX" | sudo tee -a ~/.$el_shell
 echo "alias vbrn='echo -n \"Deseas borrar la Interfaz de Red? No recomendado si tienes varias VMs creadas (n/y): \" && read RESPUESTA && if [[ \$RESPUESTA = y ]]; then echo \"Eliminando la interfaz de red de Virtual Box, el resto de la limpieza se ha realizo con EXITO\" && VBoxManage hostonlyif remove \"VirtualBox Host-Only Ethernet Adapter\" ;else echo \"La limpieza se ha realido con EXITO sin borrar la NIC de VirtualBox\"; fi'" | sudo tee -a ~/.$el_shell
 echo "alias vbun='mi_vm=\${PWD##*/} && VBoxManage unregistervm \$mi_vm -delete'" | sudo tee -a ~/.$el_shell
+
+# Ansible
+echo -e "\n#ANSIBLE" | sudo tee -a ~/.$el_shell
+echo "alias av='ansible --version'" | sudo tee -a ~/.$el_shell
+echo "alias aamp='ansible all -m ping'" | sudo tee -a ~/.$el_shell
+echo "alias aamg='ansible all -m gather_facts'" | sudo tee -a ~/.$el_shell
+echo "alias aalh='ansible all --list-hosts'" | sudo tee -a ~/.$el_shell
+echo "alias ap='ansible-playbook'" | sudo tee -a ~/.$el_shell
+echo "alias apv='ansible-playbook -vvv'" | sudo tee -a ~/.$el_shell
 
 # Sistema
 echo -e "\n#ALIAS SISTEMA" | sudo tee -a ~/.$el_shell
