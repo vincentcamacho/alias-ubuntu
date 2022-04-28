@@ -84,6 +84,7 @@ echo "alias skgrsa='echo -n \"Introduce nombre de la llave:\" && read LLAVE && e
 echo "alias skgdip='echo -n \"Introduce NOMBRE o IP del servidor que deseas remover de known_hosts:\" && read SERVIDOR_IP && ssh-keygen -f ~/.ssh/known_hosts -R \$SERVIDOR_IP'" | sudo tee -a ~/.$el_shell
 echo "alias skgy='echo -n \"PROBAR UNA KEY - Introduce llave que deseas probar:\" && read LLAVE && ssh-keygen -y -f ~/.ssh/\$LLAVE'" | sudo tee -a ~/.$el_shell
 echo "alias lsk='ls ~/.ssh'" | sudo tee -a ~/.$el_shell
+echo "alias cked='cat ~/.ssh/id_ed25519.pub'" | sudo tee -a ~/.$el_shell
 
 # Vagrant
 echo -e "\n#VAGRANT" | sudo tee -a ~/.$el_shell
@@ -95,7 +96,6 @@ echo "alias vgka='NOMBRE_VM=\${PWD##*/} && SERVIDOR_IP=\$(VBoxManage guestproper
 echo -e "\n#VIRTUAL BOX" | sudo tee -a ~/.$el_shell
 echo "alias vbrn='echo -n \"Deseas borrar la Interfaz de Red? No recomendado si tienes varias VMs creadas (n/y): \" && read RESPUESTA && if [[ \$RESPUESTA = y ]]; then echo \"Eliminando la interfaz de red de Virtual Box, el resto de la limpieza se ha realizo con EXITO\" && VBoxManage hostonlyif remove \"VirtualBox Host-Only Ethernet Adapter\" ;else echo \"La limpieza se ha realido con EXITO sin borrar la NIC de VirtualBox\"; fi'" | sudo tee -a ~/.$el_shell
 echo "alias vbun='mi_vm=\${PWD##*/} && VBoxManage unregistervm \$mi_vm -delete'" | sudo tee -a ~/.$el_shell
-echo "alias vbsvm='VBoxManage startvm --type headless'" | sudo tee -a ~/.$el_shell
 
 # Ansible
 echo -e "\n#ANSIBLE" | sudo tee -a ~/.$el_shell
