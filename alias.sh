@@ -85,6 +85,11 @@ echo "alias skgdip='echo -n \"Introduce NOMBRE o IP del servidor que deseas remo
 echo "alias skgy='echo -n \"PROBAR UNA KEY - Introduce llave que deseas probar:\" && read LLAVE && ssh-keygen -y -f ~/.ssh/\$LLAVE'" | sudo tee -a ~/.$el_shell
 echo "alias lsk='ls ~/.ssh'" | sudo tee -a ~/.$el_shell
 echo "alias cked='cat ~/.ssh/id_ed25519.pub'" | sudo tee -a ~/.$el_shell
+echo "alias sshjkm='ssh vcamacho@jenkins3.dev.idnomic.com'" | sudo tee -a ~/.$el_shell
+echo "alias sshjks1='ssh vcamacho@ci-slave1.dev.idnomic.com'" | sudo tee -a ~/.$el_shell
+echo "alias sshjks3='ssh vcamacho@ci-slave3.dev.idnomic.com'" | sudo tee -a ~/.$el_shell
+echo "alias sshjka1='ssh ansible@192.168.41.147 -i ~/.ssh/ansible'" | sudo tee -a ~/.$el_shell
+echo "alias sshjka2='ssh ansible@192.168.41.XXX -i ~/.ssh/ansible'" | sudo tee -a ~/.$el_shell
 
 # Vagrant
 echo -e "\n#VAGRANT" | sudo tee -a ~/.$el_shell
