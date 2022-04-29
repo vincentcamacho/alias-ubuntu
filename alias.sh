@@ -156,6 +156,12 @@ echo "alias gbr='git branch -r'" | sudo tee -a ~/.$el_shell
 echo "alias gft='git fetch'" | sudo tee -a ~/.$el_shell
 echo "alias gfa='git fetch -all'" | sudo tee -a ~/.$el_shell
 echo "alias gpa='git pull -all'" | sudo tee -a ~/.$el_shell
+echo "alias gstch='git stash'" | sudo tee -a ~/.$el_shell
+echo "alias gstchl='git stash list'" | sudo tee -a ~/.$el_shell
+echo "alias gstchs='git stash show'" | sudo tee -a ~/.$el_shell
+echo "alias gstchsp='git stash show -p'" | sudo tee -a ~/.$el_shell
+echo "alias gstchd0='git stash drop stash@{0}'" | sudo tee -a ~/.$el_shell
+echo "alias gstchd1='git stash drop stash@{1}'" | sudo tee -a ~/.$el_shell
 
 # Docker
 echo -e "\n#ALIAS DOCKER" | sudo tee -a ~/.$el_shell
