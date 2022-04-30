@@ -17,6 +17,7 @@ echo -e "\n#ALIAS NECESARIOS" | sudo tee -a ~/.$el_shell
 echo "alias cnz='rm -rf ~/.zshrc && cp ~/.zshrc-backup ~/.zshrc && source ~/ps/alias-ubuntu/alias.sh && source ~/.zshrc'" | sudo tee -a ~/.$el_shell
 echo "alias bsh='sudo cat ~/.bashrc'" | sudo tee -a ~/.$el_shell
 echo "alias zsh='sudo cat ~/.zshrc'" | sudo tee -a ~/.$el_shell
+echo "alias zshg='sudo cat ~/.zshrc | grep'" | sudo tee -a ~/.$el_shell
 echo "alias zg='sudo cat ~/.zshrc | grep'" | sudo tee -a ~/.$el_shell
 echo "alias ssha='eval \$(ssh-agent) && ssh-add'" | sudo tee -a ~/.$el_shell
 echo "alias fb='eval \$(ssh-agent) && ssh-add && ssh fac-bastion'" | sudo tee -a ~/.$el_shell
