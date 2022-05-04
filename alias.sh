@@ -104,6 +104,7 @@ echo "alias vbun='mi_vm=\${PWD##*/} && VBoxManage unregistervm \$mi_vm -delete'"
 
 # Ansible
 echo -e "\n#ANSIBLE" | sudo tee -a ~/.$el_shell
+echo "alias an='ansible'" | sudo tee -a ~/.$el_shell
 echo "alias av='ansible --version'" | sudo tee -a ~/.$el_shell
 echo "alias aamp='ansible all -m ping'" | sudo tee -a ~/.$el_shell
 echo "alias aamg='ansible all -m gather_facts'" | sudo tee -a ~/.$el_shell
