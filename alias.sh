@@ -238,6 +238,7 @@ echo "alias kga='kubectl get all'" | sudo tee -a ~/.$el_shell
 echo "alias kgd='kubectl get deployment'" | sudo tee -a ~/.$el_shell
 echo "alias kge='kubectl get events'" | sudo tee -a ~/.$el_shell
 echo "alias kgn='kubectl get nodes'" | sudo tee -a ~/.$el_shell
+echo "alias kgns='kubectl get namespaces'" | sudo tee -a ~/.$el_shell
 echo "alias kgp='kubectl get pods'" | sudo tee -a ~/.$el_shell
 echo "alias kgpv='kubectl get pv'" | sudo tee -a ~/.$el_shell
 echo "alias kgscr='kubectl get secret'" | sudo tee -a ~/.$el_shell
