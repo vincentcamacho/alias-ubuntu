@@ -229,6 +229,7 @@ echo "alias kdlp='kubectl delete pod'" | sudo tee -a ~/.$el_shell
 echo "alias kdlps='kubectl delete pod,service'" | sudo tee -a ~/.$el_shell
 echo "alias kdn='kubectl describe nodes'" | sudo tee -a ~/.$el_shell
 echo "alias kdp='kubectl describe pods'" | sudo tee -a ~/.$el_shell
+echo "alias kdd='kubectl describe deployment'" | sudo tee -a ~/.$el_shell
 echo "alias kdiff='kubectl diff -f'" | sudo tee -a ~/.$el_shell
 echo "alias kexec='kubectl exec'" | sudo tee -a ~/.$el_shell
 echo "alias kxp='kubectl explain pods'" | sudo tee -a ~/.$el_shell
