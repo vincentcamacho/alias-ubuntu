@@ -236,6 +236,7 @@ echo "alias kxd='kubectl expose deployment'" | sudo tee -a ~/.$el_shell
 echo "alias kgcm='kubectl get configmap'" | sudo tee -a ~/.$el_shell
 echo "alias kga='kubectl get all'" | sudo tee -a ~/.$el_shell
 echo "alias kgd='kubectl get deployment'" | sudo tee -a ~/.$el_shell
+echo "alias kgd='kubectl get deployment -o wide'" | sudo tee -a ~/.$el_shell
 echo "alias kge='kubectl get events'" | sudo tee -a ~/.$el_shell
 echo "alias kgn='kubectl get nodes'" | sudo tee -a ~/.$el_shell
 echo "alias kgns='kubectl get namespaces'" | sudo tee -a ~/.$el_shell
