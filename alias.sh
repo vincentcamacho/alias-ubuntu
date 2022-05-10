@@ -178,7 +178,8 @@ echo "alias dpa='docker ps -a'" | sudo tee -a ~/.$el_shell
 
 echo "alias db='docker build . -t'" | sudo tee -a ~/.$el_shell
 echo "alias dbvsa='docker build . -t vincenup/superapp:v1'" | sudo tee -a ~/.$el_shell
-echo "alias dpshv='docker login -u \"vincenup\" -p \"85c91b79-68d8-496a-89d2-470d97fff5a6\" docker.io'" | sudo tee -a ~/.$el_shell
+echo "alias dlgv='docker login -u \"vincenup\" -p \"85c91b79-68d8-496a-89d2-470d97fff5a6\" docker.io'" | sudo tee -a ~/.$el_shell
+echo "alias dpvsa='docker push vincenup/superapp:v1'" | sudo tee -a ~/.$el_shell
 
 echo "alias di='docker images'" | sudo tee -a ~/.$el_shell
 echo "alias dst='docker start'" | sudo tee -a ~/.$el_shell
