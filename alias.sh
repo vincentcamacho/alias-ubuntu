@@ -174,6 +174,8 @@ echo "alias gstchd1='git stash drop stash@{1}'" | sudo tee -a ~/.$el_shell
 echo -e "\n#ALIAS DOCKER" | sudo tee -a ~/.$el_shell
 echo "alias d='docker'" | sudo tee -a ~/.$el_shell
 echo "alias dp='docker ps'" | sudo tee -a ~/.$el_shell
+echo "alias db='docker build . -t'" | sudo tee -a ~/.$el_shell
+echo "alias dbvsa='docker build . -t vincenup/superapp:v1'" | sudo tee -a ~/.$el_shell
 echo "alias dpa='docker ps -a'" | sudo tee -a ~/.$el_shell
 echo "alias di='docker images'" | sudo tee -a ~/.$el_shell
 echo "alias dst='docker start'" | sudo tee -a ~/.$el_shell
