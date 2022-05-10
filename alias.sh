@@ -255,4 +255,5 @@ echo "alias kpp='kubectl patch pod'" | sudo tee -a ~/.$el_shell
 echo "alias kpf='kubectl port-forward'" | sudo tee -a ~/.$el_shell
 echo "alias kr='kubectl run'" | sudo tee -a ~/.$el_shell
 echo "alias ks='kubectl scale'" | sudo tee -a ~/.$el_shell
+echo "alias ks='kubectl deployment'" | sudo tee -a ~/.$el_shell
 echo "alias ktp='kubectl top pod'" | sudo tee -a ~/.$el_shell
