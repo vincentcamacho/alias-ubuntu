@@ -244,6 +244,7 @@ echo "alias kgns='kubectl get namespaces'" | sudo tee -a ~/.$el_shell
 echo "alias kgp='kubectl get pods'" | sudo tee -a ~/.$el_shell
 echo "alias kgpw='kubectl get pods -o wide'" | sudo tee -a ~/.$el_shell
 echo "alias kgpv='kubectl get pv'" | sudo tee -a ~/.$el_shell
+echo "alias kgrs='kubectl get replicaset'" | sudo tee -a ~/.$el_shell
 echo "alias kgscr='kubectl get secret'" | sudo tee -a ~/.$el_shell
 echo "alias kgs='kubectl get services'" | sudo tee -a ~/.$el_shell
 echo "alias klp='kubectl label pods'" | sudo tee -a ~/.$el_shell
