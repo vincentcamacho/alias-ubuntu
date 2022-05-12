@@ -2,6 +2,15 @@
 # Ejemplo de IF..ELSE en la misma linea
 #      echo -n "Introduce numero: " && read VAR && if [[ $VAR -gt 10 ]]; then echo "El numero $VAR es mayor que 10";else echo "Numero menor que 9"; fi
 
+# ------------------- HACER ESTO MANUALMENTE SOLO LA 1ERA VEZ QUE SE USA ESTE SCRIPT --------------------
+# Crear una copia de ~/.zshrc llamada ~/.zshrc-backup
+#     Meter manualmente en ese archivo .zshrc-backup lo siguiente:
+# 
+# cp ~/.zshrc ~/.zshrc-backup
+# echo 'export USUARIO_WINDOWS="tu_usuario_home_windows"' | sudo tee -a ~/.zshrc-backup
+# -------------------------------------------------------------------------------------------------------
+
+
 # OJO SELECCIONAR SHELL:  bashrc  o  zshrc
 el_shell=zshrc
 
@@ -9,7 +18,6 @@ el_shell=zshrc
 echo -e "\n#WSL + VirtualBox + Vagrant" | sudo tee -a ~/.$el_shell
 echo 'export VAGRANT_WSL_ENABLE_WINDOWS_ACCESS="1"' | sudo tee -a ~/.$el_shell
 echo 'export PATH="$PATH:/mnt/c/Program Files/Oracle/VirtualBox"' | sudo tee -a ~/.$el_shell
-echo 'export USUARIO_WINDOWS="jvinc"' | sudo tee -a ~/.zshrc
 
 # Alias ultra necesarios
 echo -e "\n#ALIAS NECESARIOS" | sudo tee -a ~/.$el_shell
