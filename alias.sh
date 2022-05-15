@@ -284,7 +284,7 @@ echo "alias kgsc='kubectl get sc'" | sudo tee -a ~/.$el_shell
 echo "alias kgep='kubectl get ep'" | sudo tee -a ~/.$el_shell
 echo "alias kgz='kubectl get pv,pvc,sc,ep'" | sudo tee -a ~/.$el_shell
 echo "alias kxdlb='kubectl expose deployment --type=LoadBalancer'" | sudo tee -a ~/.$el_shell
-echo "alias kxdlb3000 ='kubectl expose deployment --type=LoadBalancer --port=3000'" | sudo tee -a ~/.$el_shell
+echo "alias kxdlb3000='kubectl expose deployment --type=LoadBalancer --port=3000'" | sudo tee -a ~/.$el_shell
 echo "alias kxdnp='kubectl expose deployment --type=NodePort'" | sudo tee -a ~/.$el_shell
 echo "alias kxdnp3000='kubectl expose deployment --type=NodePort --port=3000'" | sudo tee -a ~/.$el_shell
 echo "alias kdpgc='kubectl describe pods | grep -A 1 -m 1 Containers:'" | sudo tee -a ~/.$el_shell
