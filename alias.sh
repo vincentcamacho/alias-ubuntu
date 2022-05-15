@@ -18,6 +18,7 @@ echo "alias cnz='rm -rf ~/.zshrc && cp ~/.zshrc-backup ~/.zshrc && source ~/ps/a
 echo "alias bsh='sudo cat ~/.bashrc'" | sudo tee -a ~/.$el_shell
 echo "alias zsh='sudo cat ~/.zshrc'" | sudo tee -a ~/.$el_shell
 echo "alias zshg='sudo cat ~/.zshrc | grep'" | sudo tee -a ~/.$el_shell
+echo "alias busk='sudo cat ~/.zshrc | grep'" | sudo tee -a ~/.$el_shell
 echo "alias zg='sudo cat ~/.zshrc | grep'" | sudo tee -a ~/.$el_shell
 echo "alias ssha='eval \$(ssh-agent) && ssh-add'" | sudo tee -a ~/.$el_shell
 echo "alias fb='eval \$(ssh-agent) && ssh-add && ssh fac-bastion'" | sudo tee -a ~/.$el_shell
@@ -29,6 +30,8 @@ echo "alias scf='cat ~/.ssh/config'" | sudo tee -a ~/.$el_shell
 echo "alias srz='source ~/.zshrc'" | sudo tee -a ~/.$el_shell
 echo "alias sps='touch super-script.sh && chmod +x super-script.sh && sudo vim super-script.sh'" | sudo tee -a ~/.$el_shell
 echo "alias rslv='echo \"nameserver 8.8.8.8\" | sudo tee /etc/resolv.conf > /dev/null'" | sudo tee -a ~/.$el_shell
+echo "alias ssds='sudo service docker start'" | sudo tee -a ~/.$el_shell
+echo "alias cdp='code . && exit'" | sudo tee -a ~/.$el_shell
 
 # Basicos
 echo -e "\n#ALIAS BASICOS" | sudo tee -a ~/.$el_shell
@@ -175,17 +178,16 @@ echo -e "\n#ALIAS DOCKER" | sudo tee -a ~/.$el_shell
 echo "alias d='docker'" | sudo tee -a ~/.$el_shell
 echo "alias dp='docker ps'" | sudo tee -a ~/.$el_shell
 echo "alias dpa='docker ps -a'" | sudo tee -a ~/.$el_shell
-
 echo "alias db='docker build . -t'" | sudo tee -a ~/.$el_shell
 echo "alias dbvsa='docker build . -t vincenup/superapp:v1'" | sudo tee -a ~/.$el_shell
 echo "alias dlgv='docker login -u \"vincenup\" -p \"85c91b79-68d8-496a-89d2-470d97fff5a6\" docker.io'" | sudo tee -a ~/.$el_shell
 echo "alias dpvsa='docker push vincenup/superapp:v1'" | sudo tee -a ~/.$el_shell
-
 echo "alias di='docker images'" | sudo tee -a ~/.$el_shell
 echo "alias dst='docker start'" | sudo tee -a ~/.$el_shell
 echo "alias dsp='docker stop'" | sudo tee -a ~/.$el_shell
 echo "alias drm='docker rm -f'" | sudo tee -a ~/.$el_shell
 echo "alias dka='docker rm \$(docker stop \$(docker ps -aq))'" | sudo tee -a ~/.$el_shell
+echo "alias dkk='docker rm $(docker stop $(docker ps -aq)) && docker rmi -f $(docker images -aq)'" | sudo tee -a ~/.$el_shell
 echo "alias dki='docker rmi -f \$(docker images -aq)'" | sudo tee -a ~/.$el_shell
 echo "alias dri='docker rmi -f'" | sudo tee -a ~/.$el_shell
 echo "alias drn='docker run'" | sudo tee -a ~/.$el_shell
@@ -202,6 +204,7 @@ echo "alias dvi='docker volume inspect'" | sudo tee -a ~/.$el_shell
 echo "alias dvr='docker volume rm'" | sudo tee -a ~/.$el_shell
 echo "alias dvp='docker volume prune'" | sudo tee -a ~/.$el_shell
 echo "alias dnl='docker network ls'" | sudo tee -a ~/.$el_shell
+echo "alias dph='docker push'" | sudo tee -a ~/.$el_shell
 echo "alias dnc='docker network create'" | sudo tee -a ~/.$el_shell
 echo "alias dni='docker network inspect'" | sudo tee -a ~/.$el_shell
 echo "alias dncn='docker network connect'" | sudo tee -a ~/.$el_shell
@@ -219,6 +222,14 @@ echo "alias dlf10='docker logs --tail 10 -f'" | sudo tee -a ~/.$el_shell
 echo "alias dstt='sudo service docker status'" | sudo tee -a ~/.$el_shell
 echo "alias dsta='sudo service docker start'" | sudo tee -a ~/.$el_shell
 echo "alias dsto='sudo service docker stop'" | sudo tee -a ~/.$el_shell
+
+# Minikube
+echo -e "\n#ALIAS MINIKUBE" | sudo tee -a ~/.$el_shell
+echo "alias mkbs='minikube start --driver=docker'" | sudo tee -a ~/.$el_shell
+echo "alias mkbd='minikube stop'" | sudo tee -a ~/.$el_shell
+echo "alias mkbip='minikube ip'" | sudo tee -a ~/.$el_shell
+echo "alias mkbdb='minikube dashboard'" | sudo tee -a ~/.$el_shell
+echo "alias mkbsv='minikube service'" | sudo tee -a ~/.$el_shell
 
 # Kubernetes
 echo -e "\n#ALIAS KUBERNETES" | sudo tee -a ~/.$el_shell
@@ -243,8 +254,8 @@ echo "alias kdiff='kubectl diff -f'" | sudo tee -a ~/.$el_shell
 echo "alias kexec='kubectl exec'" | sudo tee -a ~/.$el_shell
 echo "alias kxp='kubectl explain pods'" | sudo tee -a ~/.$el_shell
 echo "alias kxd='kubectl expose deployment'" | sudo tee -a ~/.$el_shell
-echo "alias kgcm='kubectl get configmap'" | sudo tee -a ~/.$el_shell
 echo "alias kga='kubectl get all'" | sudo tee -a ~/.$el_shell
+echo "alias kgcm='kubectl get configmap'" | sudo tee -a ~/.$el_shell
 echo "alias kgd='kubectl get deployment'" | sudo tee -a ~/.$el_shell
 echo "alias kgdw='kubectl get deployment -o wide'" | sudo tee -a ~/.$el_shell
 echo "alias kge='kubectl get events'" | sudo tee -a ~/.$el_shell
@@ -257,6 +268,23 @@ echo "alias kgrs='kubectl get replicaset'" | sudo tee -a ~/.$el_shell
 echo "alias kgscr='kubectl get secret'" | sudo tee -a ~/.$el_shell
 echo "alias kgs='kubectl get services'" | sudo tee -a ~/.$el_shell
 echo "alias kgsw='kubectl get services -o wide'" | sudo tee -a ~/.$el_shell
+echo "alias kgds='kubectl get daemonsets'" | sudo tee -a ~/.$el_shell
+echo "alias kgrc='kubectl get rc'" | sudo tee -a ~/.$el_shell
+echo "alias kgin='kubectl get ingress'" | sudo tee -a ~/.$el_shell
+echo "alias kgpvc='kubectl get pvc'" | sudo tee -a ~/.$el_shell
+echo "alias kgsc='kubectl get sc'" | sudo tee -a ~/.$el_shell
+echo "alias kgep='kubectl get ep'" | sudo tee -a ~/.$el_shell
+echo "alias kgz='kubectl get pv,pvc,sc,ep'" | sudo tee -a ~/.$el_shell
+echo "alias kxdlb='kubectl expose deployment --type=LoadBalancer'" | sudo tee -a ~/.$el_shell
+echo "alias kxdlb3000 ='kubectl expose deployment --type=LoadBalancer --port=3000'" | sudo tee -a ~/.$el_shell
+echo "alias kxdnp='kubectl expose deployment --type=NodePort'" | sudo tee -a ~/.$el_shell
+echo "alias kxdnp3000='kubectl expose deployment --type=NodePort --port=3000'" | sudo tee -a ~/.$el_shell
+echo "alias kdpgc='kubectl describe pods | grep -A 1 -m 1 Containers:'" | sudo tee -a ~/.$el_shell
+echo "alias ksid='kubectl set image deployment'" | sudo tee -a ~/.$el_shell
+echo "alias ksidnsa='kubectl set image deployment neo superapp=vincenup/superapp:v2'" | sudo tee -a ~/.$el_shell
+echo "alias krosd='kubectl rollout status deployment'" | sudo tee -a ~/.$el_shell
+echo "alias kda='kubectl delete deployments,pods,services,ingress,replicasets,rc,daemonsets'" | sudo tee -a ~/.$el_shell
+echo "alias kdf='kubectl delete -f'" | sudo tee -a ~/.$el_shell	
 echo "alias klp='kubectl label pods'" | sudo tee -a ~/.$el_shell
 echo "alias kl='kubectl logs'" | sudo tee -a ~/.$el_shell
 echo "alias kpd='kubectl patch deployment'" | sudo tee -a ~/.$el_shell
