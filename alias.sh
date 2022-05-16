@@ -45,6 +45,13 @@ echo "alias sps='touch super-script.sh && chmod +x super-script.sh && sudo vim s
 echo "alias rslv='echo \"nameserver 8.8.8.8\" | sudo tee /etc/resolv.conf > /dev/null'" | sudo tee -a ~/.$mi_shell
 echo "alias ssds='sudo service docker start'" | sudo tee -a ~/.$mi_shell
 echo "alias cdp='code . && exit'" | sudo tee -a ~/.$mi_shell
+echo "alias hstn='hostname -I | aws { print \$1}'" | sudo tee -a ~/.$mi_shell
+
+# Ports / Puertos
+echo -e "\n#PORTS" | sudo tee -a ~/.$mi_shell
+echo "alias portss='ss -tulpn | grep'" | sudo tee -a ~/.$mi_shell
+echo "alias portns='netstat -tulpn | grep'" | sudo tee -a ~/.$mi_shell
+echo "alias portls='lsof -i -P -n | grep'" | sudo tee -a ~/.$mi_shell
 
 # Basicos
 echo -e "\n#ALIAS BASICOS" | sudo tee -a ~/.$mi_shell
@@ -116,6 +123,9 @@ echo "alias vgka='NOMBRE_VM=\${PWD##*/} && SERVIDOR_IP=\$(VBoxManage guestproper
 
 # VirtualBox
 echo -e "\n#VIRTUAL BOX" | sudo tee -a ~/.$mi_shell
+echo "alias vbst='VBoxManage startvm --type headless debian'" | sudo tee -a ~/.$mi_shell
+echo "alias vbrnic='VBoxManage hostonlyif remove \"VirtualBox Host-Only Ethernet Adapter\"'" | sudo tee -a ~/.$mi_shell
+echo "alias vbrnic2='VBoxManage hostonlyif remove \"VirtualBox Host-Only Ethernet Adapter #2\"'" | sudo tee -a ~/.$mi_shell
 echo "alias vbrn='echo -n \"Deseas borrar la Interfaz de Red? No recomendado si tienes varias VMs creadas (n/y): \" && read RESPUESTA && if [[ \$RESPUESTA = y ]]; then echo \"Eliminando la interfaz de red de Virtual Box, el resto de la limpieza se ha realizo con EXITO\" && VBoxManage hostonlyif remove \"VirtualBox Host-Only Ethernet Adapter\" ;else echo \"La limpieza se ha realido con EXITO sin borrar la NIC de VirtualBox\"; fi'" | sudo tee -a ~/.$mi_shell
 echo "alias vbun='mi_vm=\${PWD##*/} && VBoxManage unregistervm \$mi_vm -delete'" | sudo tee -a ~/.$mi_shell
 
@@ -128,6 +138,9 @@ echo "alias aamg='ansible all -m gather_facts'" | sudo tee -a ~/.$mi_shell
 echo "alias aalh='ansible all --list-hosts'" | sudo tee -a ~/.$mi_shell
 echo "alias ap='ansible-playbook'" | sudo tee -a ~/.$mi_shell
 echo "alias apv='ansible-playbook -vvv'" | sudo tee -a ~/.$mi_shell
+
+echo "alias =''" | sudo tee -a ~/.$mi_shell
+ansible all -i localhost, -m debug -a "msg={{ 'lacontrasena' | password_hash('sha512', 'NEO') }}"
 
 # Sistema
 echo -e "\n#ALIAS SISTEMA" | sudo tee -a ~/.$mi_shell
@@ -183,8 +196,8 @@ echo "alias gstch='git stash'" | sudo tee -a ~/.$mi_shell
 echo "alias gstchl='git stash list'" | sudo tee -a ~/.$mi_shell
 echo "alias gstchs='git stash show'" | sudo tee -a ~/.$mi_shell
 echo "alias gstchsp='git stash show -p'" | sudo tee -a ~/.$mi_shell
-# echo "alias gstchd0='git stash drop stash@{0}'" | sudo tee -a ~/.$mi_shell
-# echo "alias gstchd1='git stash drop stash@{1}'" | sudo tee -a ~/.$mi_shell
+echo "alias gstchd0='git stash drop stash@{0}'" | sudo tee -a ~/.$mi_shell
+echo "alias gstchd1='git stash drop stash@{1}'" | sudo tee -a ~/.$mi_shell
 
 # Docker
 echo -e "\n#ALIAS DOCKER" | sudo tee -a ~/.$mi_shell
@@ -306,3 +319,5 @@ echo "alias kr='kubectl run'" | sudo tee -a ~/.$mi_shell
 echo "alias ks='kubectl scale'" | sudo tee -a ~/.$mi_shell
 echo "alias ksd='kubectl scale deployment'" | sudo tee -a ~/.$mi_shell
 echo "alias ktp='kubectl top pod'" | sudo tee -a ~/.$mi_shell
+echo "alias kdla='kubectl delete all'" | sudo tee -a ~/.$mi_shell
+echo "alias kdlaa='kubectl delete all --all'" | sudo tee -a ~/.$mi_shell
