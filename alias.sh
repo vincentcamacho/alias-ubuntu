@@ -123,7 +123,7 @@ echo "alias vgka='NOMBRE_VM=\${PWD##*/} && SERVIDOR_IP=\$(VBoxManage guestproper
 
 # VirtualBox
 echo -e "\n#VIRTUAL BOX" | sudo tee -a ~/.$mi_shell
-echo "alias vbst='VBoxManage startvm --type headless debian'" | sudo tee -a ~/.$mi_shell
+echo "alias vbst='VBoxManage startvm --type headless'" | sudo tee -a ~/.$mi_shell
 echo "alias vbrnic='VBoxManage hostonlyif remove \"VirtualBox Host-Only Ethernet Adapter\"'" | sudo tee -a ~/.$mi_shell
 echo "alias vbrnic2='VBoxManage hostonlyif remove \"VirtualBox Host-Only Ethernet Adapter #2\"'" | sudo tee -a ~/.$mi_shell
 echo "alias vbrn='echo -n \"Deseas borrar la Interfaz de Red? No recomendado si tienes varias VMs creadas (n/y): \" && read RESPUESTA && if [[ \$RESPUESTA = y ]]; then echo \"Eliminando la interfaz de red de Virtual Box, el resto de la limpieza se ha realizo con EXITO\" && VBoxManage hostonlyif remove \"VirtualBox Host-Only Ethernet Adapter\" ;else echo \"La limpieza se ha realido con EXITO sin borrar la NIC de VirtualBox\"; fi'" | sudo tee -a ~/.$mi_shell
