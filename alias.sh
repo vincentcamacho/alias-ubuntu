@@ -138,9 +138,7 @@ echo "alias aamg='ansible all -m gather_facts'" | sudo tee -a ~/.$mi_shell
 echo "alias aalh='ansible all --list-hosts'" | sudo tee -a ~/.$mi_shell
 echo "alias ap='ansible-playbook'" | sudo tee -a ~/.$mi_shell
 echo "alias apv='ansible-playbook -vvv'" | sudo tee -a ~/.$mi_shell
-
-echo "alias =''" | sudo tee -a ~/.$mi_shell
-ansible all -i localhost, -m debug -a "msg={{ 'lacontrasena' | password_hash('sha512', 'NEO') }}"
+echo "alias apw='ansible all -i localhost, -m debug -a \"msg={{ 'lacontrasena' | password_hash('sha512', 'NEO') }}\"'" | sudo tee -a ~/.$mi_shell
 
 # Sistema
 echo -e "\n#ALIAS SISTEMA" | sudo tee -a ~/.$mi_shell
