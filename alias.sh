@@ -170,6 +170,22 @@ echo 'alias proxyoff="unset http_proxy;unset https_proxy"' | sudo tee -a ~/.$mi_
 # JENKINS_HOST=vincent:123@localhost:8080
 # curl -sSL "http://$JENKINS_HOST/pluginManager/api/xml?depth=1&xpath=/*/*/shortName|/*/*/version&wrapper=plugins" | perl -pe 's/.*?<shortName>([\w-]+).*?<version>([^<]+)()(<\/\w+>)+/\1 \2\n/g'|sed 's/ /:/'
 
+# Conexiones SSH
+echo -e "\n#ALIAS SSH CONEXIONES" | sudo tee -a ~/.$mi_shell
+echo "alias ='ssh ansible@jenkins.dev.idnomic.com -i ~/.ssh/ansible'" | sudo tee -a ~/.$mi_shell
+# echo "alias =''" | sudo tee -a ~/.$mi_shell
+# echo "alias =''" | sudo tee -a ~/.$mi_shell
+# echo "alias =''" | sudo tee -a ~/.$mi_shell
+# echo "alias =''" | sudo tee -a ~/.$mi_shell
+
+# VSCode
+echo -e "\n#ALIAS VSCODE" | sudo tee -a ~/.$mi_shell
+echo "alias cdals='code ~/ps/alias-ubuntu'" | sudo tee -a ~/.$mi_shell
+echo "alias cdinf='code ~/ps/aws_FULL_Infra_Varios_Servers_CI_CD'" | sudo tee -a ~/.$mi_shell
+echo "alias cdvgr='code ~/ps/vagrant'" | sudo tee -a ~/.$mi_shell
+echo "alias cdwsl='code ~/ps/wsl-bash-script'" | sudo tee -a ~/.$mi_shell
+echo "alias cdans='code ~/ps/ansible-wsl'" | sudo tee -a ~/.$mi_shell
+
 # Git Alias
 echo -e "\n#ALIAS GIT" | sudo tee -a ~/.$mi_shell
 echo "alias gst='git status'" | sudo tee -a ~/.$mi_shell
@@ -320,3 +336,14 @@ echo "alias ksd='kubectl scale deployment'" | sudo tee -a ~/.$mi_shell
 echo "alias ktp='kubectl top pod'" | sudo tee -a ~/.$mi_shell
 echo "alias kdla='kubectl delete all'" | sudo tee -a ~/.$mi_shell
 echo "alias kdlaa='kubectl delete all --all'" | sudo tee -a ~/.$mi_shell
+
+function kgaa {
+  echo -e "*****************************************************"
+  echo -e "CLUSTER KUBERNETES - TODOS LOS RECURSOS DEL NAMESPACE: ${1}"
+  echo -e "*****************************************************\n"
+  for i in $(kubectl api-resources --verbs=list --namespaced -o name | grep -v "events.events.k8s.io" | grep -v "events" | sort | uniq); do
+    echo "----- $i -----"
+    kubectl -n ${1} get --ignore-not-found ${i}
+    echo
+  done
+}
