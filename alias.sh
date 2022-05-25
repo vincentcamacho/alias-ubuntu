@@ -172,11 +172,13 @@ echo 'alias proxyoff="unset http_proxy;unset https_proxy"' | sudo tee -a ~/.$mi_
 
 # Conexiones SSH
 echo -e "\n#ALIAS SSH CONEXIONES" | sudo tee -a ~/.$mi_shell
-echo "alias ='ssh ansible@jenkins.dev.idnomic.com -i ~/.ssh/ansible'" | sudo tee -a ~/.$mi_shell
-# echo "alias =''" | sudo tee -a ~/.$mi_shell
-# echo "alias =''" | sudo tee -a ~/.$mi_shell
-# echo "alias =''" | sudo tee -a ~/.$mi_shell
-# echo "alias =''" | sudo tee -a ~/.$mi_shell
+function sshn {  ssh -i ~/.ssh/ansible ansible@${1} }
+function sshni { ssh -i ~/.ssh/ansible ansible@${1}.dev.idnomic.com }
+function sshvi { ssh -i ~/.ssh/id_rsa vcamacho@${1}.dev.idnomic.com  }
+echo "alias sshj='ssh ansible@jenkins.dev.idnomic.com -i ~/.ssh/ansible'" | sudo tee -a ~/.$mi_shell
+echo "alias sshag1='ssh ansible@jenkins-agent-1.dev.idnomic.com -i ~/.ssh/ansible'" | sudo tee -a ~/.$mi_shell
+echo "alias sshci1='ssh ansible@ci-slave1.dev.idnomic.com -i ~/.ssh/ansible'" | sudo tee -a ~/.$mi_shell
+echo "alias sshci2='ssh ansible@ci-slave3.dev.idnomic.com -i ~/.ssh/ansible'" | sudo tee -a ~/.$mi_shell
 
 # VSCode
 echo -e "\n#ALIAS VSCODE" | sudo tee -a ~/.$mi_shell
