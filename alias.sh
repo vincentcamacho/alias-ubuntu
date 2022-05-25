@@ -172,15 +172,19 @@ echo "alias tmk='tmux kill-session -t'" | sudo tee -a ~/.$mi_shell
 
 # Conexiones SSH
 echo -e "\n#ALIAS SSH CONEXIONES" | sudo tee -a ~/.$mi_shell
+
+cat << EOF | tee -a ~/.$mi_shell
 function sshn {  
-  ssh -i ~/.ssh/ansible ansible@${1} 
+  ssh -i ~/.ssh/ansible ansible@\${1} 
 }
 function sshni { 
-  ssh -i ~/.ssh/ansible ansible@${1}.dev.idnomic.com
+  ssh -i ~/.ssh/ansible ansible@\${1}.dev.idnomic.com
 }
 function sshvi {
-  ssh -i ~/.ssh/id_rsa vcamacho@${1}.dev.idnomic.com 
+  ssh -i ~/.ssh/id_rsa vcamacho@\${1}.dev.idnomic.com 
 }
+EOF
+
 echo "alias sshj='ssh ansible@jenkins.dev.idnomic.com -i ~/.ssh/ansible'" | sudo tee -a ~/.$mi_shell
 echo "alias sshag1='ssh ansible@jenkins-agent-1.dev.idnomic.com -i ~/.ssh/ansible'" | sudo tee -a ~/.$mi_shell
 echo "alias sshci1='ssh ansible@ci-slave1.dev.idnomic.com -i ~/.ssh/ansible'" | sudo tee -a ~/.$mi_shell
@@ -348,6 +352,7 @@ echo "alias ktp='kubectl top pod'" | sudo tee -a ~/.$mi_shell
 echo "alias kdla='kubectl delete all'" | sudo tee -a ~/.$mi_shell
 echo "alias kdlaa='kubectl delete all --all'" | sudo tee -a ~/.$mi_shell
 
+cat << EOF | tee -a ~/.$mi_shell
 function kgaa {
   echo -e "*****************************************************"
   if [ "$1" != '' ];then
@@ -367,3 +372,4 @@ function kgaa {
   fi
   echo -e "*****************************************************\n"
 }
+EOF
