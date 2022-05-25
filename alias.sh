@@ -27,7 +27,7 @@ echo 'export PATH="$PATH:/mnt/c/Program Files/Oracle/VirtualBox"' | sudo tee -a 
 # Alias ultra necesarios
 echo -e "\n#ALIAS NECESARIOS" | sudo tee -a ~/.$mi_shell
 # echo "alias cna='rm -rf alias.sh && touch alias.sh && chmod +x alias.sh && vim alias.sh'" | sudo tee -a ~/.$mi_shell
-echo "alias cnz='rm -rf ~/.zshrc && cp ~/.zshrc-backup ~/.zshrc && source ~/ps/alias-ubuntu/alias.sh && source ~/.zshrc'" | sudo tee -a ~/.$mi_shell
+echo "alias cnz='rm -rf ~/.zshrc && cp ~/.zshrc-backup ~/.zshrc && bash ~/ps/alias-ubuntu/alias.sh && source ~/.zshrc'" | sudo tee -a ~/.$mi_shell
 echo "alias bsh='sudo cat ~/.bashrc'" | sudo tee -a ~/.$mi_shell
 echo "alias zsh='sudo cat ~/.zshrc'" | sudo tee -a ~/.$mi_shell
 echo "alias zshg='sudo cat ~/.zshrc | grep'" | sudo tee -a ~/.$mi_shell
@@ -161,10 +161,10 @@ echo "alias tmn='tmux new -s'" | sudo tee -a ~/.$mi_shell
 echo "alias tmk='tmux kill-session -t'" | sudo tee -a ~/.$mi_shell
 
 # IDN
-echo -e "\n#ALIAS IDN" | sudo tee -a ~/.$mi_shell
-echo 'alias tprx="curl -k -x "http://proxy.dev.idnomic.com:3128" -L "https://www.amazon.com""' | sudo tee -a ~/.$mi_shell
-echo 'alias proxyon="export http_proxy="http://proxy.dev.idnomic.com:3128";export https_proxy="http://proxy.dev.idnomic.com:3128""' | sudo tee -a ~/.$mi_shell
-echo 'alias proxyoff="unset http_proxy;unset https_proxy"' | sudo tee -a ~/.$mi_shell
+# echo -e "\n#ALIAS IDN" | sudo tee -a ~/.$mi_shell
+# echo 'alias tprx="curl -k -x "http://proxy.dev.idnomic.com:3128" -L "https://www.amazon.com""' | sudo tee -a ~/.$mi_shell
+# echo 'alias proxyon="export http_proxy="http://proxy.dev.idnomic.com:3128";export https_proxy="http://proxy.dev.idnomic.com:3128""' | sudo tee -a ~/.$mi_shell
+# echo 'alias proxyoff="unset http_proxy;unset https_proxy"' | sudo tee -a ~/.$mi_shell
 
 # Como obtener todos los plugins de un server corriendo Jenkins
 # JENKINS_HOST=vincent:123@localhost:8080
@@ -172,9 +172,15 @@ echo 'alias proxyoff="unset http_proxy;unset https_proxy"' | sudo tee -a ~/.$mi_
 
 # Conexiones SSH
 echo -e "\n#ALIAS SSH CONEXIONES" | sudo tee -a ~/.$mi_shell
-function sshn {  ssh -i ~/.ssh/ansible ansible@${1} }
-function sshni { ssh -i ~/.ssh/ansible ansible@${1}.dev.idnomic.com }
-function sshvi { ssh -i ~/.ssh/id_rsa vcamacho@${1}.dev.idnomic.com  }
+function sshn {  
+  ssh -i ~/.ssh/ansible ansible@${1} 
+}
+function sshni { 
+  ssh -i ~/.ssh/ansible ansible@${1}.dev.idnomic.com
+}
+function sshvi {
+  ssh -i ~/.ssh/id_rsa vcamacho@${1}.dev.idnomic.com 
+}
 echo "alias sshj='ssh ansible@jenkins.dev.idnomic.com -i ~/.ssh/ansible'" | sudo tee -a ~/.$mi_shell
 echo "alias sshag1='ssh ansible@jenkins-agent-1.dev.idnomic.com -i ~/.ssh/ansible'" | sudo tee -a ~/.$mi_shell
 echo "alias sshci1='ssh ansible@ci-slave1.dev.idnomic.com -i ~/.ssh/ansible'" | sudo tee -a ~/.$mi_shell
