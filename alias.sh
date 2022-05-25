@@ -344,11 +344,20 @@ echo "alias kdlaa='kubectl delete all --all'" | sudo tee -a ~/.$mi_shell
 
 function kgaa {
   echo -e "*****************************************************"
-  echo -e "CLUSTER KUBERNETES - TODOS LOS RECURSOS DEL NAMESPACE: ${1}"
+  if [ "$1" != '' ];then
+    echo -e "CLUSTER KUBERNETES - TODOS LOS RECURSOS DEL NAMESPACE: ${1}"
+      for i in $(kubectl api-resources --verbs=list --namespaced -o name | grep -v "events.events.k8s.io" | grep -v "events" | sort | uniq); do
+        echo "----- $i -----"
+        kubectl -n ${1} get --ignore-not-found ${i}
+        echo
+      done
+  else
+    echo -e "CLUSTER KUBERNETES - TODOS LOS RECURSOS DEL NAMESPACE: default"
+      for i in $(kubectl api-resources --verbs=list --namespaced -o name | grep -v "events.events.k8s.io" | grep -v "events" | sort | uniq); do
+        echo "----- $i -----"
+        kubectl -n default get --ignore-not-found ${i}
+        echo
+      done
+  fi
   echo -e "*****************************************************\n"
-  for i in $(kubectl api-resources --verbs=list --namespaced -o name | grep -v "events.events.k8s.io" | grep -v "events" | sort | uniq); do
-    echo "----- $i -----"
-    kubectl -n ${1} get --ignore-not-found ${i}
-    echo
-  done
 }
