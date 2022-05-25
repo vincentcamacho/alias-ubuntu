@@ -215,6 +215,7 @@ echo "alias gstchp='git stash pop'" | sudo tee -a ~/.$mi_shell
 echo "alias gstchl='git stash list'" | sudo tee -a ~/.$mi_shell
 echo "alias gstchs='git stash show'" | sudo tee -a ~/.$mi_shell
 echo "alias gstchsp='git stash show -p'" | sudo tee -a ~/.$mi_shell
+echo "alias gstchsv='git stash save'" | sudo tee -a ~/.$mi_shell
 echo "alias gstchd0='git stash drop stash@{0}'" | sudo tee -a ~/.$mi_shell
 echo "alias gstchd1='git stash drop stash@{1}'" | sudo tee -a ~/.$mi_shell
 
