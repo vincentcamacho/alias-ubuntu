@@ -285,6 +285,17 @@ echo "alias mkbip='minikube ip'" | sudo tee -a ~/.$mi_shell
 echo "alias mkbdb='minikube dashboard'" | sudo tee -a ~/.$mi_shell
 echo "alias mkbsv='minikube service'" | sudo tee -a ~/.$mi_shell
 
+# Terraform
+echo -e "\n#ALIAS TERRAFORM" | sudo tee -a ~/.$mi_shell
+echo "alias t='terraform'" | sudo tee -a ~/.$mi_shell
+echo "alias ti='terraform init'" | sudo tee -a ~/.$mi_shell
+echo "alias tp='terraform plan'" | sudo tee -a ~/.$mi_shell
+echo "alias ta='terraform apply'" | sudo tee -a ~/.$mi_shell
+echo "alias td='terraform destroy'" | sudo tee -a ~/.$mi_shell
+# echo "alias =''" | sudo tee -a ~/.$mi_shell
+# echo "alias =''" | sudo tee -a ~/.$mi_shell
+
+
 # Kubernetes
 echo -e "\n#ALIAS KUBERNETES" | sudo tee -a ~/.$mi_shell
 echo "alias k='kubectl'" | sudo tee -a ~/.$mi_shell
