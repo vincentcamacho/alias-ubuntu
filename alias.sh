@@ -288,12 +288,18 @@ echo "alias mkbsv='minikube service'" | sudo tee -a ~/.$mi_shell
 # Terraform
 echo -e "\n#ALIAS TERRAFORM" | sudo tee -a ~/.$mi_shell
 echo "alias t='terraform'" | sudo tee -a ~/.$mi_shell
+echo "alias tf='terraform fmt'" | sudo tee -a ~/.$mi_shell
 echo "alias ti='terraform init'" | sudo tee -a ~/.$mi_shell
-echo "alias tp='terraform plan'" | sudo tee -a ~/.$mi_shell
+echo "alias tp='terraform fmt && terraform plan'" | sudo tee -a ~/.$mi_shell
 echo "alias ta='terraform apply'" | sudo tee -a ~/.$mi_shell
 echo "alias td='terraform destroy'" | sudo tee -a ~/.$mi_shell
+echo "alias taa='terraform apply --auto-approve'" | sudo tee -a ~/.$mi_shell
+echo "alias tda='terraform destroy --auto-approve'" | sudo tee -a ~/.$mi_shell
+echo "alias ts='terraform show'" | sudo tee -a ~/.$mi_shell
+echo "alias tsj='terraform show -json'" | sudo tee -a ~/.$mi_shell
 # echo "alias =''" | sudo tee -a ~/.$mi_shell
 # echo "alias =''" | sudo tee -a ~/.$mi_shell
+
 
 
 # Kubernetes
