@@ -297,10 +297,8 @@ echo "alias taa='terraform apply --auto-approve'" | sudo tee -a ~/.$mi_shell
 echo "alias tda='terraform destroy --auto-approve'" | sudo tee -a ~/.$mi_shell
 echo "alias ts='terraform show'" | sudo tee -a ~/.$mi_shell
 echo "alias tsj='terraform show -json'" | sudo tee -a ~/.$mi_shell
+echo "alias tss='terraform state show'" | sudo tee -a ~/.$mi_shell
 # echo "alias =''" | sudo tee -a ~/.$mi_shell
-# echo "alias =''" | sudo tee -a ~/.$mi_shell
-
-
 
 # Kubernetes
 echo -e "\n#ALIAS KUBERNETES" | sudo tee -a ~/.$mi_shell
