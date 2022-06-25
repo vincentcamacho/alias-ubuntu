@@ -100,7 +100,7 @@ echo -e "\n#ALIAS SSHD" | sudo tee -a ~/.$mi_shell
 echo "alias sshd='sudo cat /etc/ssh/sshd_config'" | sudo tee -a ~/.$mi_shell
 echo 'alias sshda="cat /etc/ssh/sshd_config | grep -e PubkeyAuthentication -e PasswordAuthentication -e PermitRootLogin -e PermitEmptyPasswords"' | sudo tee -a ~/.$mi_shell
 
-# SSH KEYS
+# ---------------------------  SSH Keys ------------------------------------
 echo -e "\n#SSH KEYS" | sudo tee -a ~/.$mi_shell
 echo "alias skged='echo -n \"Introduce nombre de la llave:\" && read LLAVE && echo -n \"Introduce contrasena de la llave: (v = vacia, sin contrasena)\" && read CONTRASENA && if [[ \$CONTRASENA = v ]]; then ssh-keygen -t ed25519 -b 521 -f ~/.ssh/\$LLAVE -q -N \"\";else ssh-keygen -t ed25519 -b 521 -f ~/.ssh/\$LLAVE -q -N \$CONTRASENA; fi'" | sudo tee -a ~/.$mi_shell
 echo "alias skgrsa='echo -n \"Introduce nombre de la llave:\" && read LLAVE && echo -n \"Introduce contrasena de la llave: (v = vacia, sin contrasena)\" && read CONTRASENA && if [[ \$CONTRASENA = v ]]; then ssh-keygen -t rsa -b 4096 -f ~/.ssh/\$LLAVE -q -N \"\";else ssh-keygen -t rsa -b 4096 -f ~/.ssh/\$LLAVE -q -N \$CONTRASENA; fi'" | sudo tee -a ~/.$mi_shell
@@ -116,13 +116,13 @@ echo "alias sshjks3='ssh vcamacho@ci-slave3.dev.idnomic.com'" | sudo tee -a ~/.$
 echo "alias sshjka1='ssh ansible@192.168.41.147 -i ~/.ssh/ansible'" | sudo tee -a ~/.$mi_shell
 echo "alias sshjka2='ssh ansible@192.168.41.XXX -i ~/.ssh/ansible'" | sudo tee -a ~/.$mi_shell
 
-# Vagrant
+# ---------------------------  Vagrant ------------------------------------
 echo -e "\n#VAGRANT" | sudo tee -a ~/.$mi_shell
 echo "alias vgu='vagrant up'" | sudo tee -a ~/.$mi_shell
 echo "alias vgh='vagrant halt'" | sudo tee -a ~/.$mi_shell
 echo "alias vgka='NOMBRE_VM=\${PWD##*/} && SERVIDOR_IP=\$(VBoxManage guestproperty get \$NOMBRE_VM \"/VirtualBox/GuestInfo/Net/1/V4/IP\" | cut -b 8-21) && vagrant destroy -f && sudo rm -rf \"/mnt/c/Users/\$USUARIO_WINDOWS/VirtualBox VMs/\$NOMBRE_VM\" && sudo rm -rf .vagrant/ && ssh-keygen -f ~/.ssh/known_hosts -R \$SERVIDOR_IP && ssh-keygen -f ~/.ssh/known_hosts -R \$NOMBRE_VM && sudo rm -rf ~/.ssh/known_hosts.old && echo -n \"Deseas borrar la Interfaz de Red? No recomendado si tienes varias VMs creadas (n/y): \" && read RESPUESTA && if [[ \$RESPUESTA = y ]]; then echo \"Eliminando la interfaz de red de Virtual Box, el resto de la limpieza se ha realizo con EXITO\" && VBoxManage hostonlyif remove \"VirtualBox Host-Only Ethernet Adapter\" ;else echo \"La limpieza se ha realido con EXITO sin borrar la NIC de VirtualBox\"; fi'" | sudo tee -a ~/.$mi_shell
 
-# VirtualBox
+# ---------------------------  VirtualBox ------------------------------------
 echo -e "\n#VIRTUAL BOX" | sudo tee -a ~/.$mi_shell
 echo "alias vbst='VBoxManage startvm --type headless'" | sudo tee -a ~/.$mi_shell
 echo "alias vbrnic='VBoxManage hostonlyif remove \"VirtualBox Host-Only Ethernet Adapter\"'" | sudo tee -a ~/.$mi_shell
@@ -130,7 +130,7 @@ echo "alias vbrnic2='VBoxManage hostonlyif remove \"VirtualBox Host-Only Etherne
 echo "alias vbrn='echo -n \"Deseas borrar la Interfaz de Red? No recomendado si tienes varias VMs creadas (n/y): \" && read RESPUESTA && if [[ \$RESPUESTA = y ]]; then echo \"Eliminando la interfaz de red de Virtual Box, el resto de la limpieza se ha realizo con EXITO\" && VBoxManage hostonlyif remove \"VirtualBox Host-Only Ethernet Adapter\" ;else echo \"La limpieza se ha realido con EXITO sin borrar la NIC de VirtualBox\"; fi'" | sudo tee -a ~/.$mi_shell
 echo "alias vbun='mi_vm=\${PWD##*/} && VBoxManage unregistervm \$mi_vm -delete'" | sudo tee -a ~/.$mi_shell
 
-# Ansible
+# ---------------------------  Ansible ------------------------------------
 echo -e "\n#ANSIBLE" | sudo tee -a ~/.$mi_shell
 echo "alias an='ansible'" | sudo tee -a ~/.$mi_shell
 echo "alias av='ansible --version'" | sudo tee -a ~/.$mi_shell
@@ -141,18 +141,18 @@ echo "alias ap='ansible-playbook'" | sudo tee -a ~/.$mi_shell
 echo "alias apv='ansible-playbook -vvv'" | sudo tee -a ~/.$mi_shell
 echo "alias apw='ansible all -i localhost, -m debug -a \"msg={{ 'lacontrasena' | password_hash('sha512', 'NEO') }}\"'" | sudo tee -a ~/.$mi_shell
 
-# Sistema
+# ---------------------------  System ------------------------------------
 echo -e "\n#ALIAS SISTEMA" | sudo tee -a ~/.$mi_shell
 echo "alias vmmc='sudo sysctl vm.max_map_count'" | sudo tee -a ~/.$mi_shell
 echo "alias ffm='sudo sysctl fs.file-max'" | sudo tee -a ~/.$mi_shell
 
-# IP Tables
+# ---------------------------  Iptables ------------------------------------
 # sudo iptables -L
 # sudo iptables -A INPUT -p icmp --icmp-type echo-request -j REJECT
 # sudo iptables -D INPUT -p icmp --icmp-type echo-request -j REJECT
 # sudo iptables -F
 
-# Tmux
+# ---------------------------  TMUX ------------------------------------
 echo -e "\n#ALIAS TMUX" | sudo tee -a ~/.$mi_shell
 echo "alias tml='tmux ls'" | sudo tee -a ~/.$mi_shell
 echo "alias tma='tmux attach -t'" | sudo tee -a ~/.$mi_shell
@@ -170,7 +170,7 @@ echo "alias tmk='tmux kill-session -t'" | sudo tee -a ~/.$mi_shell
 # JENKINS_HOST=vincent:123@localhost:8080
 # curl -sSL "http://$JENKINS_HOST/pluginManager/api/xml?depth=1&xpath=/*/*/shortName|/*/*/version&wrapper=plugins" | perl -pe 's/.*?<shortName>([\w-]+).*?<version>([^<]+)()(<\/\w+>)+/\1 \2\n/g'|sed 's/ /:/'
 
-# Conexiones SSH
+# ---------------------------  Conexiones SSH ------------------------------------
 echo -e "\n#ALIAS SSH CONEXIONES" | sudo tee -a ~/.$mi_shell
 
 cat << EOF | tee -a ~/.$mi_shell
@@ -190,7 +190,7 @@ echo "alias sshag1='ssh ansible@jenkins-agent-1.dev.idnomic.com -i ~/.ssh/ansibl
 echo "alias sshci1='ssh ansible@ci-slave1.dev.idnomic.com -i ~/.ssh/ansible'" | sudo tee -a ~/.$mi_shell
 echo "alias sshci2='ssh ansible@ci-slave3.dev.idnomic.com -i ~/.ssh/ansible'" | sudo tee -a ~/.$mi_shell
 
-# VSCode
+# ---------------------------  VSCode ------------------------------------
 echo -e "\n#ALIAS VSCODE" | sudo tee -a ~/.$mi_shell
 echo "alias cdals='code ~/ps/alias-ubuntu'" | sudo tee -a ~/.$mi_shell
 echo "alias cdinf='code ~/ps/aws_FULL_Infra_Varios_Servers_CI_CD'" | sudo tee -a ~/.$mi_shell
@@ -198,7 +198,7 @@ echo "alias cdvgr='code ~/ps/vagrant'" | sudo tee -a ~/.$mi_shell
 echo "alias cdwsl='code ~/ps/wsl-bash-script'" | sudo tee -a ~/.$mi_shell
 echo "alias cdans='code ~/ps/ansible-wsl'" | sudo tee -a ~/.$mi_shell
 
-# Git Alias
+# ---------------------------  Git ------------------------------------
 echo -e "\n#ALIAS GIT" | sudo tee -a ~/.$mi_shell
 echo "alias gst='git status'" | sudo tee -a ~/.$mi_shell
 echo "alias gad='git add'" | sudo tee -a ~/.$mi_shell
@@ -229,7 +229,7 @@ echo "alias gstchsv='git stash save'" | sudo tee -a ~/.$mi_shell
 echo "alias gstchd0='git stash drop stash@{0}'" | sudo tee -a ~/.$mi_shell
 echo "alias gstchd1='git stash drop stash@{1}'" | sudo tee -a ~/.$mi_shell
 
-# Docker
+# ---------------------------  Docker ------------------------------------
 echo -e "\n#ALIAS DOCKER" | sudo tee -a ~/.$mi_shell
 echo "alias d='docker'" | sudo tee -a ~/.$mi_shell
 echo "alias dp='docker ps'" | sudo tee -a ~/.$mi_shell
@@ -277,7 +277,7 @@ echo "alias dstt='sudo service docker status'" | sudo tee -a ~/.$mi_shell
 echo "alias dsta='sudo service docker start'" | sudo tee -a ~/.$mi_shell
 echo "alias dsto='sudo service docker stop'" | sudo tee -a ~/.$mi_shell
 
-# Minikube
+# ---------------------------  Minikube ------------------------------------
 echo -e "\n#ALIAS MINIKUBE" | sudo tee -a ~/.$mi_shell
 echo "alias mkbs='minikube start --driver=docker'" | sudo tee -a ~/.$mi_shell
 echo "alias mkbd='minikube stop'" | sudo tee -a ~/.$mi_shell
@@ -285,22 +285,64 @@ echo "alias mkbip='minikube ip'" | sudo tee -a ~/.$mi_shell
 echo "alias mkbdb='minikube dashboard'" | sudo tee -a ~/.$mi_shell
 echo "alias mkbsv='minikube service'" | sudo tee -a ~/.$mi_shell
 
-# Terraform
+# ---------------------------  Terraform ------------------------------------
 echo -e "\n#ALIAS TERRAFORM" | sudo tee -a ~/.$mi_shell
 echo "alias t='terraform'" | sudo tee -a ~/.$mi_shell
 echo "alias tf='terraform fmt'" | sudo tee -a ~/.$mi_shell
 echo "alias ti='terraform init'" | sudo tee -a ~/.$mi_shell
+
 echo "alias tp='terraform fmt && terraform plan'" | sudo tee -a ~/.$mi_shell
+echo "alias tpvf='terraform fmt && terraform plan -var-file'" | sudo tee -a ~/.$mi_shell
+# cat << EOF | tee -a ~/.$mi_shell
+# tpv(){
+#   COMANDO="terraform plan "
+#     for arg in "\$@"; do
+#       COMANDO+="-var=\$arg "
+#     done
+#   return \$COMANDO
+# }
+# EOF
+       # Ejemplo de comando: tpv tipo_instancia=\"t2.nano\"
+
 echo "alias ta='terraform apply'" | sudo tee -a ~/.$mi_shell
+echo "alias taro='terraform apply -refresh-only'" | sudo tee -a ~/.$mi_shell
+echo "alias tavf='terraform apply -var-file'" | sudo tee -a ~/.$mi_shell
+# cat << EOF | tee -a ~/.$mi_shell
+# tav(){
+#   COMANDO="terraform apply "
+#     for arg in "\$@"; do
+#       COMANDO+="-var=\$arg "
+#     done
+#   return \$COMANDO
+# }
+# EOF
+       # Ejemplo de comando: tav tipo_instancia=\"t2.nano\"
+
 echo "alias td='terraform destroy'" | sudo tee -a ~/.$mi_shell
 echo "alias taa='terraform apply --auto-approve'" | sudo tee -a ~/.$mi_shell
 echo "alias tda='terraform destroy --auto-approve'" | sudo tee -a ~/.$mi_shell
 echo "alias ts='terraform show'" | sudo tee -a ~/.$mi_shell
 echo "alias tsj='terraform show -json'" | sudo tee -a ~/.$mi_shell
 echo "alias tss='terraform state show'" | sudo tee -a ~/.$mi_shell
-# echo "alias =''" | sudo tee -a ~/.$mi_shell
+echo "alias tprov='terraform providers'" | sudo tee -a ~/.$mi_shell
+echo "alias tv='terraform validate'" | sudo tee -a ~/.$mi_shell
+echo "alias to='terraform output'" | sudo tee -a ~/.$mi_shell
+echo "alias tor='terraform output -raw'" | sudo tee -a ~/.$mi_shell
+echo "alias toj='terraform output -json'" | sudo tee -a ~/.$mi_shell
 
-# Kubernetes
+cat << EOF | tee -a ~/.$mi_shell
+sshtfaws(){
+  echo "ssh -i ~/.ssh/id_ed25519 \$1@\$(terraform output -raw \$2)"
+}
+EOF
+
+cat << EOF | tee -a ~/.$mi_shell
+tarp(){
+  echo "terraform apply -replace=\"aws_instance.\$1\""
+}
+EOF
+
+# ---------------------------  Kubernetes ------------------------------------
 echo -e "\n#ALIAS KUBERNETES" | sudo tee -a ~/.$mi_shell
 echo "alias k='kubectl'" | sudo tee -a ~/.$mi_shell
 echo "alias kaf='kubectl apply -f'" | sudo tee -a ~/.$mi_shell
@@ -389,11 +431,5 @@ function kgaa {
 }
 EOF
 
-#Comando nuevo
-#Comando nuevo
-#Comando nuevo
-#Comando nuevo
-#Comando nuevo
-#Comando nuevo
-#Comando nuevo
-#Comando nuevo
+
+
