@@ -329,6 +329,9 @@ echo "alias tv='terraform validate'" | sudo tee -a ~/.$mi_shell
 echo "alias to='terraform output'" | sudo tee -a ~/.$mi_shell
 echo "alias tor='terraform output -raw'" | sudo tee -a ~/.$mi_shell
 echo "alias toj='terraform output -json'" | sudo tee -a ~/.$mi_shell
+echo "alias taro='terraform apply -refresh-only'" | sudo tee -a ~/.$mi_shell
+echo "alias tr='terraform refresh'" | sudo tee -a ~/.$mi_shell
+echo "alias tpd='terraform plan -destroy'" | sudo tee -a ~/.$mi_shell
 
 cat << EOF | tee -a ~/.$mi_shell
 function sshaws {
