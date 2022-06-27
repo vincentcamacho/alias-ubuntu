@@ -331,14 +331,12 @@ echo "alias tor='terraform output -raw'" | sudo tee -a ~/.$mi_shell
 echo "alias toj='terraform output -json'" | sudo tee -a ~/.$mi_shell
 
 cat << EOF | tee -a ~/.$mi_shell
-sshtfaws(){
-  echo "ssh -i ~/.ssh/id_ed25519 \$1@\$(terraform output -raw \$2)"
+function sshaws {
+  ssh -i ~/.ssh/id_ed25519 \${1}@\$\(terraform output -raw \${2}\)
 }
-EOF
 
-cat << EOF | tee -a ~/.$mi_shell
-tarp(){
-  echo "terraform apply -replace=\"aws_instance.\$1\""
+function tarp {
+  terraform apply -replace="aws_instance.\${1}"
 }
 EOF
 
