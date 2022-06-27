@@ -321,6 +321,7 @@ echo "alias tavf='terraform apply -var-file'" | sudo tee -a ~/.$mi_shell
 echo "alias td='terraform destroy'" | sudo tee -a ~/.$mi_shell
 echo "alias taa='terraform apply --auto-approve'" | sudo tee -a ~/.$mi_shell
 echo "alias tda='terraform destroy --auto-approve'" | sudo tee -a ~/.$mi_shell
+echo "alias tpd='terraform plan -destroy'" | sudo tee -a ~/.$mi_shell
 echo "alias ts='terraform show'" | sudo tee -a ~/.$mi_shell
 echo "alias tsj='terraform show -json'" | sudo tee -a ~/.$mi_shell
 echo "alias tss='terraform state show'" | sudo tee -a ~/.$mi_shell
@@ -331,7 +332,9 @@ echo "alias tor='terraform output -raw'" | sudo tee -a ~/.$mi_shell
 echo "alias toj='terraform output -json'" | sudo tee -a ~/.$mi_shell
 echo "alias taro='terraform apply -refresh-only'" | sudo tee -a ~/.$mi_shell
 echo "alias tr='terraform refresh'" | sudo tee -a ~/.$mi_shell
-echo "alias tpd='terraform plan -destroy'" | sudo tee -a ~/.$mi_shell
+echo "alias tt='terraform taint'" | sudo tee -a ~/.$mi_shell
+echo "alias tw='terraform workspace'" | sudo tee -a ~/.$mi_shell
+
 
 cat << EOF | tee -a ~/.$mi_shell
 function sshaws {
