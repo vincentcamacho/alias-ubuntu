@@ -334,6 +334,7 @@ echo "alias taro='terraform apply -refresh-only'" | sudo tee -a ~/.$mi_shell
 echo "alias tr='terraform refresh'" | sudo tee -a ~/.$mi_shell
 echo "alias tt='terraform taint'" | sudo tee -a ~/.$mi_shell
 echo "alias tw='terraform workspace'" | sudo tee -a ~/.$mi_shell
+echo "alias tcsl='terraform console'" | sudo tee -a ~/.$mi_shell
 
 
 cat << EOF | tee -a ~/.$mi_shell
