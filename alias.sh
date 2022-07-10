@@ -27,12 +27,10 @@ echo 'export PATH="$PATH:/mnt/c/Program Files/Oracle/VirtualBox"' | sudo tee -a 
 # Alias ultra necesarios
 echo -e "\n#ALIAS NECESARIOS" | sudo tee -a ~/.$mi_shell
 # echo "alias cna='rm -rf alias.sh && touch alias.sh && chmod +x alias.sh && vim alias.sh'" | sudo tee -a ~/.$mi_shell
-echo "alias cnz='rm -rf ~/.zshrc && cp ~/.zshrc-backup ~/.zshrc && bash ~/ps/alias-ubuntu/alias.sh && source ~/.zshrc'" | sudo tee -a ~/.$mi_shell
-echo "alias bsh='sudo cat ~/.bashrc'" | sudo tee -a ~/.$mi_shell
-echo "alias zsh='sudo cat ~/.zshrc'" | sudo tee -a ~/.$mi_shell
-echo "alias zshg='sudo cat ~/.zshrc | grep'" | sudo tee -a ~/.$mi_shell
-echo "alias busk='sudo cat ~/.zshrc | grep'" | sudo tee -a ~/.$mi_shell
-echo "alias zg='sudo cat ~/.zshrc | grep'" | sudo tee -a ~/.$mi_shell
+echo "alias cnsh='rm -rf ~/.$mi_shell && cp ~/.$mi_shell-backup ~/.$mi_shell && bash ~/ps/alias-ubuntu/alias.sh && source ~/.$mi_shell'" | sudo tee -a ~/.$mi_shell
+
+echo "alias busk='sudo cat ~/.$mi_shell | grep'" | sudo tee -a ~/.$mi_shell
+
 echo "alias ssha='eval \$(ssh-agent) && ssh-add'" | sudo tee -a ~/.$mi_shell
 echo "alias fb='eval \$(ssh-agent) && ssh-add && ssh fac-bastion'" | sudo tee -a ~/.$mi_shell
 # echo "alias cns='echo \"#!/bin/bash\" >> script.sh && chmod +x script.sh && vim script.sh'" | sudo tee -a ~/.$mi_shell
@@ -376,6 +374,7 @@ echo "alias kgd='kubectl get deployment'" | sudo tee -a ~/.$mi_shell
 echo "alias kgdw='kubectl get deployment -o wide'" | sudo tee -a ~/.$mi_shell
 echo "alias kge='kubectl get events'" | sudo tee -a ~/.$mi_shell
 echo "alias kgn='kubectl get nodes'" | sudo tee -a ~/.$mi_shell
+echo "alias kgnw='kubectl get nodes -o wide'" | sudo tee -a ~/.$mi_shell
 echo "alias kgns='kubectl get namespaces'" | sudo tee -a ~/.$mi_shell
 echo "alias kgp='kubectl get pods'" | sudo tee -a ~/.$mi_shell
 echo "alias kgpw='kubectl get pods -o wide'" | sudo tee -a ~/.$mi_shell
