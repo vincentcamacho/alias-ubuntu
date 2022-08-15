@@ -81,7 +81,7 @@ echo "alias lsbc='lsb_release -c'" | sudo tee -a ~/.$mi_shell
 echo "alias osr='cat /etc/os-release'" | sudo tee -a ~/.$mi_shell
 
 # Disco, RAM, Procesos, etc
-echo "alias lsbl='sudo lsblk -o NAME,FSTYPE,TYPE,STATE,PARTTYPENAME,MOUNTPOINT,LABEL,SIZE,FSSIZE,FSAVAIL,FSUSED,FSUSE%,PATH'" | sudo tee -a ~/.$mi_shell
+echo "alias lsbl='sudo lsblk -o NAME,FSTYPE,TYPE,MOUNTPOINT,LABEL,SIZE,FSSIZE,FSAVAIL,FSUSED,FSUSE%,PATH'" | sudo tee -a ~/.$mi_shell
 echo "alias dfh='df -h | sort -k 1'" | sudo tee -a ~/.$mi_shell
 echo "alias duh='du -sh * | sort -h'" | sudo tee -a ~/.$mi_shell
 echo "alias psa='ps auxww'" | sudo tee -a ~/.$mi_shell
