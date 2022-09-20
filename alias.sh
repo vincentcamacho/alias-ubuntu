@@ -45,6 +45,8 @@ echo "alias ssds='sudo service docker start'" | sudo tee -a ~/.$mi_shell
 echo "alias cdp='code . && exit'" | sudo tee -a ~/.$mi_shell
 echo "alias hstn='hostname -I | aws { print \$1}'" | sudo tee -a ~/.$mi_shell
 echo "alias hgr='history | grep'" | sudo tee -a ~/.$mi_shell
+echo "alias py='python3'" | sudo tee -a ~/.$mi_shell
+
 
 # Ports / Puertos
 echo -e "\n#PORTS" | sudo tee -a ~/.$mi_shell
