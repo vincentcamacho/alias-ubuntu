@@ -36,8 +36,6 @@ echo "alias busk='sudo cat ~/.$mi_shell | grep'" | sudo tee -a ~/.$mi_shell
 
 echo "alias ssha='eval \$(ssh-agent) && ssh-add'" | sudo tee -a ~/.$mi_shell
 echo "alias fb='ssh fac-bastion'" | sudo tee -a ~/.$mi_shell
-# echo "alias cns='echo \"#!/bin/bash\" >> script.sh && chmod +x script.sh && vim script.sh'" | sudo tee -a ~/.$mi_shell
-echo "alias cns='echo -e \"#!/bin/bash\\n\" >> script.sh && chmod +x script.sh && vim script.sh'" | sudo tee -a ~/.$mi_shell
 echo "alias lc='colorls -lA --sd'" | sudo tee -a ~/.$mi_shell
 echo "alias lx='exa -lhgi'" | sudo tee -a ~/.$mi_shell
 echo "alias scf='cat ~/.ssh/config'" | sudo tee -a ~/.$mi_shell
