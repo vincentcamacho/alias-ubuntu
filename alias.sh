@@ -8,6 +8,9 @@
 # echo 'export USUARIO_WINDOWS="tu_usuario_home_windows"' | sudo tee -a ~/.zshrc-backup
 # -------------------------------------------------------------------------------------------------------
 
+# cat /etc/ssh/sshd_config | egrep 'PasswordAuthentication|PubkeyAuthentication|PermitRootLogin|PermitEmptyPasswords'
+# sed -e 's/^#PasswordAuthentication.*/PasswordAuthentication yes/g' -e 's/^#PubkeyAuthentication.*/PubkeyAuthentication yes/g' -e 's/^#PermitRootLogin.*/PermitRootLogin yes/g' /etc/ssh/sshd_config | egrep 'PasswordAuthentication|PubkeyAuthentication|PermitRootLogin'
+# sed -i -e 's/^#PasswordAuthentication.*/PasswordAuthentication yes/g' -e 's/^#PubkeyAuthentication.*/PubkeyAuthentication yes/g' -e 's/^#PermitRootLogin.*/PermitRootLogin yes/g' /etc/ssh/sshd_config'
 
 # ----------------- Ejemplo de IF/ELSE en la misma linea -----------------------------------------------
 #      echo -n "Introduce numero: " && read VAR && if [[ $VAR -gt 10 ]]; then echo "El numero $VAR es mayor que 10";else echo "Numero menor que 9"; fi
@@ -32,7 +35,7 @@ echo "alias cnsh='rm -rf ~/.$mi_shell && cp ~/.$mi_shell-backup ~/.$mi_shell && 
 echo "alias busk='sudo cat ~/.$mi_shell | grep'" | sudo tee -a ~/.$mi_shell
 
 echo "alias ssha='eval \$(ssh-agent) && ssh-add'" | sudo tee -a ~/.$mi_shell
-echo "alias fb='eval \$(ssh-agent) && ssh-add && ssh fac-bastion'" | sudo tee -a ~/.$mi_shell
+echo "alias fb='ssh fac-bastion'" | sudo tee -a ~/.$mi_shell
 # echo "alias cns='echo \"#!/bin/bash\" >> script.sh && chmod +x script.sh && vim script.sh'" | sudo tee -a ~/.$mi_shell
 echo "alias cns='echo -e \"#!/bin/bash\\n\" >> script.sh && chmod +x script.sh && vim script.sh'" | sudo tee -a ~/.$mi_shell
 echo "alias lc='colorls -lA --sd'" | sudo tee -a ~/.$mi_shell
@@ -83,7 +86,7 @@ echo "alias lsbc='lsb_release -c'" | sudo tee -a ~/.$mi_shell
 echo "alias osr='cat /etc/os-release'" | sudo tee -a ~/.$mi_shell
 
 # Disco, RAM, Procesos, etc
-echo "alias lsbl='sudo lsblk -o NAME,FSTYPE,SIZE,MOUNTPOINT,LABEL'" | sudo tee -a ~/.$mi_shell
+echo "alias lsbl='sudo lsblk -o NAME,FSTYPE,TYPE,MOUNTPOINT,LABEL,SIZE,FSSIZE,FSAVAIL,FSUSED,FSUSE%,PATH'" | sudo tee -a ~/.$mi_shell
 echo "alias dfh='df -h | sort -k 1'" | sudo tee -a ~/.$mi_shell
 echo "alias duh='du -sh * | sort -h'" | sudo tee -a ~/.$mi_shell
 echo "alias psa='ps auxww'" | sudo tee -a ~/.$mi_shell
@@ -98,7 +101,8 @@ echo "alias psc='ps -eo comm,pmem,pcpu,uname,pid,etime --sort -pcpu | head -15'"
 #Configurar Formas de Autenticacion /etc/ssh/sshd_config
 echo -e "\n#ALIAS SSHD" | sudo tee -a ~/.$mi_shell
 echo "alias sshd='sudo cat /etc/ssh/sshd_config'" | sudo tee -a ~/.$mi_shell
-echo 'alias sshda="cat /etc/ssh/sshd_config | grep -e PubkeyAuthentication -e PasswordAuthentication -e PermitRootLogin -e PermitEmptyPasswords"' | sudo tee -a ~/.$mi_shell
+echo "alias sshda='cat /etc/ssh/sshd_config | egrep \"PasswordAuthentication|PubkeyAuthentication|PermitRootLogin|PermitEmptyPasswords\"'" | sudo tee -a ~/.$mi_shell
+echo "alias sshdsed='sed -e \"s/^#PasswordAuthentication.*/PasswordAuthentication yes/g\" -e \"s/^#PubkeyAuthentication.*/PubkeyAuthentication yes/g\" -e \"s/^#PermitRootLogin.*/PermitRootLogin yes/g\" /etc/ssh/sshd_config | egrep \"^PasswordAuthentication|^PubkeyAuthentication|^PermitRootLogin\"'" | sudo tee -a ~/.$mi_shell
 
 # ---------------------------  SSH Keys ------------------------------------
 echo -e "\n#SSH KEYS" | sudo tee -a ~/.$mi_shell
