@@ -439,5 +439,36 @@ function kgaa {
 }
 EOF
 
+cat << EOF | tee -a ~/.$mi_shell
+function sbx {
+  sed -i '/^# AWS SANDBOX.*/d' ~/.zshrc-backup
+  sed -i '/^export AWS_/d' ~/.zshrc-backup
+
+  echo "# AWS SANDBOX - Programmatic Access" >> ~/.zshrc-backup  
+  echo -e "\${1}" >> ~/.zshrc-backup
+  echo "export AWS_DEFAULT_REGION=eu-west-1" >> ~/.zshrc-backup
+
+  rm -rf ~/.zshrc
+  cp ~/.zshrc-backup ~/.zshrc
+  bash ~/ps/alias-ubuntu/alias.sh
+  source ~/.zshrc
+}
+
+
+function glbtkn {
+  sed -i '/^# GitLab - TOKEN ACCESO/d' ~/.zshrc-backup
+  sed -i '/^export MI_TOKEN_GITLAB/d' ~/.zshrc-backup
+
+  echo "# GitLab - TOKEN ACCESO" >> ~/.zshrc-backup
+  echo "export MI_TOKEN_GITLAB=\${1}" >> ~/.zshrc-backup
+
+  rm -rf ~/.zshrc
+  cp ~/.zshrc-backup ~/.zshrc
+  bash ~/ps/alias-ubuntu/alias.sh
+  source ~/.zshrc
+}
+
+EOF
+
 
 
