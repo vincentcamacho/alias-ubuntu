@@ -455,7 +455,7 @@ function sbx {
 }
 
 
-function glbtkn {
+function gtltkn {
   sed -i '/^# GitLab - TOKEN ACCESO/d' ~/.zshrc-backup
   sed -i '/^export MI_TOKEN_GITLAB/d' ~/.zshrc-backup
 
